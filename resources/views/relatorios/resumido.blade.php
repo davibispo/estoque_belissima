@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header text-center" style="background-color:thistle;"><b>RELATÓRIO ANALÍTICO - RESUMO DIÁRIO</b></div>
+                <div class="card-header text-center" style="background-color:thistle;"><b>RELATÓRIO - RESUMO DIÁRIO</b></div>
 
                 <div class="card-body">
 

@@ -16,5 +16,12 @@ class RelatorioController extends Controller
         return view('relatorios.geral', compact('vendas'));
     
     }
+
+    public function resumido()
+    {
+
+        return view('relatorios.geral');
+    
+    }
    
 }

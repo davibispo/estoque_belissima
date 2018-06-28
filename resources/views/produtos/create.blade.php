@@ -13,7 +13,7 @@
                         <div class="form-group row">
                             {!! Form::label('codigo', 'Código do Produto', ['class'=>'col-sm-4 col-form-label text-md-right']) !!}
                             <div class="col-md-6">
-                                {!! Form::text('codigo', null, ['class'=>'form-control','placeholder'=>'0000']) !!}
+                                {!! Form::text('codigo', null, ['class'=>'form-control']) !!}
                             </div>
                         </div>
                         
@@ -26,7 +26,7 @@
                         <div class="form-group row">
                             {!! Form::label('valor', 'Valor', ['class'=>'col-sm-4 col-form-label text-md-right']) !!}
                             <div class="col-md-6">
-                                {!! Form::text('valor', null, ['class'=>'form-control', 'required','placeholder'=>'0.00']) !!}
+                                {!! Form::text('valor', null, ['class'=>'form-control', 'required']) !!}
                             </div>
                         </div>
                         <div class="form-group row">

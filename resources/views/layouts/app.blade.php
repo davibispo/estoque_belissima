@@ -56,7 +56,7 @@
                                 <a class="btn btn-outline-dark btn-sm dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Relatórios</a>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="{{route('relatorios.geral')}}">Geral</a>
-                                    <a class="dropdown-item" href="{{route('relatorios.analitico')}}">Analítico (Resumo Diário)</a>
+                                    <a class="dropdown-item" href="{{route('relatorios.resumido')}}">Resumido</a>
                                 </div>
                             </li> 
                             <li style="padding-right:5px"><a href="{{route('vendas.index')}}" class="btn btn-success btn-sm">VENDA</a></li> 

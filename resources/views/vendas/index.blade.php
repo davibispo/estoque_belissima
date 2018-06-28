@@ -8,7 +8,7 @@
                 <div class="card-header text-center" style="background-color:lightgreen;"><b>ABERTURA DE VENDA</b></div>
 
                 <div class="card-body">
-                    <h3>Produtos na cesta: {{$numProdutosNaCesta}}</h3>                    
+                    <h3>Produtos na cesta: <b>{{$numProdutosNaCesta}}</b></h3>                    
                     <table class="table table-hover table-success" style="font-size:12px">
                         <tr>
                             <th>Código</th>
@@ -39,10 +39,11 @@
                         @endforelse
                        
                         <tr style="background-color:white">
-                            <th colspan="5" class="text-right"><h4>Total: R$ <b>{{number_format($valorTotal ,2,',','.')}}</b></h4> 
-                                    <a href="{{route('vendas.concluir-venda')}}" class="btn btn-success">CONCLUIR VENDA</a>
-                                </th>   
-                            </tr>
+                            <th colspan="5" class="text-right">
+                                <h4>Total: R$ <b>{{number_format($valorTotal ,2,',','.')}}</b></h4> 
+                                <a href="{{route('vendas.concluir-venda')}}" style="display:inline;" class="btn btn-success">CONCLUIR VENDA</a>
+                            </th>   
+                        </tr>
                     </table>
                     
                     <input name="produto_id" class="form-control" id="myInput" type="text" placeholder="Filtrar..">                          

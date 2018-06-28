@@ -12,13 +12,14 @@
                     <br>
                     <table class="table table-bordered table-hover">
                         <tr>
-                            <th>Produto vendido</th>
+                            <th colspan="2">Produtos vendidos</th>
                             <th>Valor (R$)</th>
-                            <th>Data da venda</th>
+                            <th>Data e hora</th>
                         </tr>
                         @forelse ($vendas as $venda)
                         <tbody id="myTable" style="font-size:12px">
                         <tr>
+                            <td>{{DB::table('produtos')->select('codigo')->where('id', $venda->produto_id)->value('codigo')}}</td>
                             <td>
                                 {{DB::table('produtos')->select('nome')->where('id', $venda->produto_id)->value('nome')}} - 
                                 {{DB::table('produtos')->select('descricao')->where('id', $venda->produto_id)->value('descricao')}}
