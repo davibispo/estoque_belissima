@@ -115,6 +115,7 @@ class VendaController extends Controller
         foreach($vendas as $venda){
 
             $venda->status = $request->status;
+            $venda->user_id = auth()->user()->id;
 
             $venda->update();
         }

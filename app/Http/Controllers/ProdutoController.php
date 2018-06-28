@@ -46,6 +46,7 @@ class ProdutoController extends Controller
         $p->valor = str_replace(',','.',$request->valor); //caso use vírgula será substituido por ponto.
         $p->descricao = strtoupper($request->descricao);
         $p->quantidade = $request->quantidade;
+        $p->user_id = auth()->user()->id;
 
         $p->save();
 
@@ -93,6 +94,7 @@ class ProdutoController extends Controller
         $produto->valor = str_replace(',','.',$request->valor);
         $produto->descricao = strtoupper($request->descricao);
         $produto->quantidade = $request->quantidade;
+        $produto->user_id = auth()->user()->id;
         
         $produto->update();
         

@@ -18,7 +18,7 @@ class CreateVendasTable extends Migration
             $table->unsignedInteger('produto_id');
             $table->foreign('produto_id')->references('id')->on('produtos');
             $table->decimal('preco', 5, 2);
-            $table->date('data_venda');
+            $table->dateTime('data_venda');
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->char('status')->nullable()->default('1');

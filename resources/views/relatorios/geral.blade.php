@@ -14,17 +14,17 @@
                         <tr>
                             <th>Produto vendido</th>
                             <th>Valor (R$)</th>
-                            <th>Data</th>
+                            <th>Data da venda</th>
                         </tr>
-                        @forelse ($relatorios as $relatorio)
+                        @forelse ($vendas as $venda)
                         <tbody id="myTable" style="font-size:12px">
                         <tr>
                             <td>
-                                {{DB::table('produtos')->select('nome')->where('id', $relatorio->produto_id)->value('nome')}} - 
-                                {{DB::table('produtos')->select('descricao')->where('id', $relatorio->produto_id)->value('descricao')}}
+                                {{DB::table('produtos')->select('nome')->where('id', $venda->produto_id)->value('nome')}} - 
+                                {{DB::table('produtos')->select('descricao')->where('id', $venda->produto_id)->value('descricao')}}
                             </td>
-                            <td>{{DB::table('produtos')->select('valor')->where('id', $relatorio->produto_id)->value('valor')}}</td>
-                            <td>{{date('d/m/y -  H:i', strtotime($relatorio->data))}}</td>
+                            <td>{{DB::table('vendas')->select('preco')->where('produto_id', $venda->produto_id)->value('preco')}}</td>
+                            <td>{{date('d/m/y -  H:i', strtotime($venda->data_venda))}}</td>
                         </tr>
                         </tbody>    
                         @empty

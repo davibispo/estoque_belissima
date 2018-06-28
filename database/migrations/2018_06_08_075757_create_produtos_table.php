@@ -21,6 +21,8 @@ class CreateProdutosTable extends Migration
             $table->text('descricao')->nullable();
             $table->integer('quantidade');
             $table->char('ativo', 1)->nullable()->default('1');
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             
             $table->timestamps();
         });
@@ -34,5 +36,6 @@ class CreateProdutosTable extends Migration
     public function down()
     {
         Schema::dropIfExists('produtos');
+        Schema::enableForeignKeyConstraints();
     }
 }
