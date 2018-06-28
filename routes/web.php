@@ -6,7 +6,7 @@ Route::resource('vendas', 'VendaController');
 
 Route::get('relatorios/geral', 'RelatorioController@geral')->name('relatorios.geral');
 
-Route::get('relatorios/resumido', 'RelatorioController@resumido')->name('relatorios.resumido');
+Route::get('relatorios/resumo-diario', 'RelatorioController@resumoDiario')->name('relatorios.resumo-diario');
 
 Route::resource('produtos', 'ProdutoController');
 

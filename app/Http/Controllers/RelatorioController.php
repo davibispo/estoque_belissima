@@ -17,10 +17,10 @@ class RelatorioController extends Controller
     
     }
 
-    public function resumido()
+    public function resumoDiario()
     {
 
-        return view('relatorios.geral');
+        return view('relatorios.resumo-diario');
     
     }
    
