@@ -87,8 +87,6 @@ class ProdutoController extends Controller
     {
         $produto = Produto::find($id);
 
-        $relatorio = new Relatorio();
-
         $produto->codigo = $request->codigo;
         $produto->nome = strtoupper($request->nome);
         $produto->valor = str_replace(',','.',$request->valor);

@@ -65,7 +65,7 @@ class VendaController extends Controller
         $venda->preco = $request->preco;
         $venda->data_venda = date("Y-m-d H:i:s");
         $venda->user_id = auth()->user()->id;
-        $venda->cesta = 1;
+        $venda->cesta = 0;
 
         //associa o id do produto selecionado ao da tabela de produtos
         $produto = Produto::find($request->produto_id);
@@ -143,8 +143,8 @@ class VendaController extends Controller
 
     public function concluirVenda(){
 
-        DB::table('vendas')->where('status', '1')->update(['status'=> '2', 'cesta'=> 0]);
-
+        DB::table('vendas')->where('ativo','1')->where('status','1')->update(['status'=> '2']);
+        DB::table('vendas')->where('ativo','1')->where('status','2')->increment('cesta',1);
         return redirect()->back()->with('alertSuccess', 'Venda concluída com sucesso!');
     }
 }

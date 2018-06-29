@@ -10,25 +10,20 @@
                 <div class="card-body">
                     <table class="table" style="margin-bottom:0px; padding-bottom:0px">
                         <tr>
-                            <td class="text-left"><h3>Produtos na cesta: <b>{{$numProdutosNaCesta}}</b></h3> </td>
+                            <td class="text-left"><h4>Produtos na cesta: <b>{{$numProdutosNaCesta}}</b></h4> </td>
                             <td class="text-right"><h4>Total: R$ <b>{{number_format($valorTotal ,2,',','.')}}</b></h4> </td>
                         </tr>
                     </table>
                                        
                     <table class="table table-hover table-success" style="font-size:12px">
-                        <tr>
-                            <th>Código</th>
-                            <th>Nome do produto</th>
-                            <th>Descrição</th>
-                            <th>Preço</th>
-                            <th></th>
-                        </tr>
                         @forelse ($vendas as $venda)
                         <tbody>
                             <tr>
                                 <td>{{DB::table('produtos')->select('codigo')->where('id',$venda->produto_id)->value('codigo')}}</td>
-                                <td>{{DB::table('produtos')->select('nome')->where('id',$venda->produto_id)->value('nome')}}</td>
-                                <td>{{DB::table('produtos')->select('descricao')->where('id',$venda->produto_id)->value('descricao')}}</td>
+                                <td>
+                                    {{DB::table('produtos')->select('nome')->where('id',$venda->produto_id)->value('nome')}} - 
+                                    {{DB::table('produtos')->select('descricao')->where('id',$venda->produto_id)->value('descricao')}}
+                                </td>
                                 <th>R$ {{number_format(DB::table('produtos')->select('valor')->where('id',$venda->produto_id)->value('valor'), 2, ',', '.')}}</th>
                                 <th>
                                     {!! Form::model($venda, ['method'=>'DELETE','action'=>['VendaController@destroy', $venda->id]]) !!}
