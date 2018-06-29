@@ -29,7 +29,7 @@
                         </tr>
                         </tbody>    
                         @empty
-                            <div class="alert-warning">
+                            <div class="alert alert-warning">
                                 <p>Não há vendas ainda!</p>
                             </div>
                         @endforelse

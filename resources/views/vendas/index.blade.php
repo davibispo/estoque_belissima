@@ -8,7 +8,13 @@
                 <div class="card-header text-center" style="background-color:lightgreen;"><b>ABERTURA DE VENDA</b></div>
 
                 <div class="card-body">
-                    <h3>Produtos na cesta: <b>{{$numProdutosNaCesta}}</b></h3>                    
+                    <table class="table" style="margin-bottom:0px; padding-bottom:0px">
+                        <tr>
+                            <td class="text-left"><h3>Produtos na cesta: <b>{{$numProdutosNaCesta}}</b></h3> </td>
+                            <td class="text-right"><h4>Total: R$ <b>{{number_format($valorTotal ,2,',','.')}}</b></h4> </td>
+                        </tr>
+                    </table>
+                                       
                     <table class="table table-hover table-success" style="font-size:12px">
                         <tr>
                             <th>Código</th>
@@ -33,15 +39,14 @@
                             </tr>
                         </tbody>    
                         @empty
-                        <div class="alert-warning">
+                        <div class="alert alert-warning">
                             <p>Não há produtos na cesta!</p>
                         </div>
                         @endforelse
                        
                         <tr style="background-color:white">
                             <th colspan="5" class="text-right">
-                                <h4>Total: R$ <b>{{number_format($valorTotal ,2,',','.')}}</b></h4> 
-                                <a href="{{route('vendas.concluir-venda')}}" style="display:inline;" class="btn btn-success">CONCLUIR VENDA</a>
+                                <a href="{{route('vendas.concluir-venda')}}" class="btn btn-success">CONCLUIR VENDA</a>
                             </th>   
                         </tr>
                     </table>

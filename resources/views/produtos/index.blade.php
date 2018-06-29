@@ -40,7 +40,7 @@
                         </tr>
                         </tbody>    
                         @empty
-                            <div class="alert-warning">
+                            <div class="alert alert-warning">
                                 <p>Não há produtos cadastrados!</p>
                             </div>
                         @endforelse

@@ -8,25 +8,22 @@
                 <div class="card-header text-center" style="background-color:thistle;"><b>RELATÓRIO - RESUMO DIÁRIO</b></div>
 
                 <div class="card-body">
-
+                    
                     <table class="table table-bordered table-hover">
                         <tr>
-                            <th>Data das vendas</th>
-                            <td>12/06/2018</td>
+                            <th>Data da venda</th>
+                            <td>{{date('d-m-Y', strtotime($dataVenda))}}</td>
                         </tr>
                         <tr>
-                            <th>Número de Itens Vendidos</th>
-                            <td>
-                                27
-                            </td>
+                            <th>Número de produtos vendidos</th>
+                            <td>{{$numProdVendidos}}</td>
                         </tr>
                         <tr>
-                            <th>Valor Total</th>
-                            <td>R$ 146,25</td>
+                            <th>Valor total</th>
+                            <td>R$ {{$totalValor}}</td>
                         </tr>
-                          
                     </table>
-
+                    
                 </div>
             </div>
         </div>

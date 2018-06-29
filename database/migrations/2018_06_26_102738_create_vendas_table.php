@@ -21,6 +21,7 @@ class CreateVendasTable extends Migration
             $table->dateTime('data_venda');
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
+            $table->integer('cesta');
             $table->char('status')->nullable()->default('1');
             $table->char('ativo')->nullable()->default('1');
 
