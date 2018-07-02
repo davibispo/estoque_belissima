@@ -20,7 +20,7 @@
                         <tbody>
                             <tr>
                                 <td style="width:50%">Número de produtos vendidos</td>
-                                <td style="width:50%">Valor total</td>
+                                <td style="width:50%">Valor total do dia</td>
                             </tr>
                             <tr>
                                 <th><h3>{{ $numProdutosVendidos }}</h3></th>

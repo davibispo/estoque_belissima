@@ -10,9 +10,6 @@ Route::resource('relatorios', 'RelatorioController');
 
 Route::resource('vendas', 'VendaController');
 
-//Route::get('relatorios/geral', 'RelatorioController@geral')->name('relatorios.geral');
-//Route::post('relatorios', 'RelatorioController@resumoDiario');
-
 Route::resource('produtos', 'ProdutoController');
 
 Route::get('/', function () {
