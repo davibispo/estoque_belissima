@@ -55,8 +55,8 @@
                             <li style="padding-right:25px" class="nav-item dropdown">
                                 <a class="btn btn-outline-dark btn-sm dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Relatórios</a>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="{{route('relatorios.geral')}}">Geral</a>
-                                    <a class="dropdown-item" href="{{route('relatorios.resumo-diario')}}">Resumido</a>
+                                    <a class="dropdown-item" href="{{route('relatorios.index')}}">Geral</a>
+                                    <a class="dropdown-item" href="{{ route('relatorios.resumido') }}">Resumo do dia</a>
                                 </div>
                             </li> 
                             <li style="padding-right:5px"><a href="{{route('vendas.index')}}" class="btn btn-success btn-sm">VENDA</a></li> 
@@ -117,10 +117,10 @@
             <script>
                 $(document).ready(function(){
                     $("#myInput").on("keyup", function() {
-                    var value = $(this).val().toLowerCase();
-                    $("#myTable tr").filter(function() {
-                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                    });
+                        var value = $(this).val().toLowerCase();
+                        $("#myTable tr").filter(function() {
+                            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                        });
                     });
                 });
             </script>
@@ -136,7 +136,7 @@
                     $(".dropdown-toggle").dropdown();
                 });
             </script>
-            
+
         </main>
     </div>
 </body>

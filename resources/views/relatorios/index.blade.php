@@ -10,7 +10,7 @@
                 <div class="card-body">
                     <input class="form-control" id="myInput" type="text" placeholder="Filtrar..">
                     <br>
-                    <table class="table table-bordered table-hover">
+                    <table class="table table-bordered table-hover table-sm">
                         <tr>
                             <th colspan="2">Produtos vendidos</th>
                             <th>Valor (R$)</th>
@@ -24,15 +24,16 @@
                                 {{DB::table('produtos')->select('nome')->where('id', $venda->produto_id)->value('nome')}} - 
                                 {{DB::table('produtos')->select('descricao')->where('id', $venda->produto_id)->value('descricao')}}
                             </td>
-                            <td>{{DB::table('vendas')->select('preco')->where('produto_id', $venda->produto_id)->value('preco')}}</td>
-                            <td>{{date('d/m/y -  H:i', strtotime($venda->data_venda))}}</td>
+                            <td>{{number_format(DB::table('vendas')->select('preco')->where('produto_id', $venda->produto_id)->value('preco'), 2, ',', '.')}}</td>
+                            <td>{{date('d/m/y', strtotime($venda->data_venda))}} - {{date('H:i', strtotime($venda->created_at))}}</td>
                         </tr>
                         </tbody>    
                         @empty
-                            <div class="alert alert-warning">
-                                <p>Não há vendas ainda!</p>
-                            </div>
+                        <div class="alert alert-warning">
+                            <p>Não há vendas ainda!</p>
+                        </div>
                         @endforelse
+                        
                     </table>
                 </div>
             </div>

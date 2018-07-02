@@ -15,7 +15,7 @@
                         </tr>
                     </table>
                                        
-                    <table class="table table-hover table-success" style="font-size:12px">
+                    <table class="table table-hover table-success table-sm">
                         @forelse ($vendas as $venda)
                         <tbody>
                             <tr>
@@ -49,7 +49,7 @@
                     <input name="produto_id" class="form-control" id="myInput" type="text" placeholder="Filtrar..">                          
                     <br>
                     
-                    <table class="table table-bordered table-hover">
+                    <table class="table table-bordered table-hover table-sm">
                         <tr>
                             <th>Código</th>
                             <th>Nome do Produto</th>
