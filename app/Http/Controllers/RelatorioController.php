@@ -56,12 +56,6 @@ class RelatorioController extends Controller
      */
     public function store(Request $request)
     {
-        $dataInicio = $request->dataInicio;
-        $dataFim = $request->dataFim;
-
-        //valor das vendas entre duas datas
-        //dd($total);                      
-        return redirect()->back();
         
     }
 

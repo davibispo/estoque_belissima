@@ -48,7 +48,7 @@
                     
                     <input name="produto_id" class="form-control" id="myInput" type="text" placeholder="Filtrar..">                          
                     <br>
-                    
+                    <h5>ESTOQUE DISPONÍVEL</h5>
                     <table class="table table-bordered table-hover table-sm">
                         <tr>
                             <th>Código</th>
