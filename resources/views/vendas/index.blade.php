@@ -49,11 +49,10 @@
                     <input name="produto_id" class="form-control" id="myInput" type="text" placeholder="Filtrar..">                          
                     <br>
                     <h5>ESTOQUE DISPONÍVEL</h5>
-                    <table class="table table-bordered table-hover table-sm">
+                    <table class="table table-hover table-sm">
                         <tr>
                             <th>Código</th>
-                            <th>Nome do Produto</th>
-                            <th>Descrição</th>
+                            <th>Produtos</th>
                             <th style="width:10%">Valor (R$)</th>
                             <th style="width:5%">Qtd</th>
                             <th>Adicionar</th>
@@ -62,8 +61,7 @@
                         <tbody id="myTable" style="font-size:12px">
                         <tr>
                             <td>{{$produto->codigo}}</td>
-                            <td>{{$produto->nome}}</td>
-                            <td>{{$produto->descricao}}</td>
+                            <td>{{$produto->nome}} - {{$produto->descricao}}</td>
                             <th>{{number_format($produto->valor, 2, ',', '.')}}</th>
                             <td>{{$produto->quantidade}}</td>
                             
@@ -71,7 +69,7 @@
                                 {!! Form::open(['method'=>'POST','action'=>['VendaController@store', $produto->id]]) !!}
                                     {!! Form::hidden('produto_id', $produto->id) !!}
                                     {!! Form::hidden('preco', $produto->valor) !!}
-                                    {!! Form::submit('', ['class'=>'btn btn-success btn-sm', 'style'=>'font-size:5px', 'data-toggle'=>'tooltip', 'title'=>'Adicionar'])!!}
+                                    {!! Form::submit('', ['class'=>'btn btn-success btn-sm', 'style'=>'font-size:5px', 'data-toggle'=>'tooltip', 'title'=>'Colocar na cesta'])!!}
                                 {!! Form::close() !!}
                             </td>
                         </tr>

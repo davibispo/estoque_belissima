@@ -16,7 +16,7 @@ class VendaController extends Controller
      */
     public function index()
     {
-        $produtos = Produto::all()->where('ativo', '1');
+        $produtos = Produto::all()->where('ativo', '1')->where('quantidade', '>', 0);
 
         $vendas = Venda::all()->where('ativo', '1')->where('status', '1');
 

@@ -115,8 +115,8 @@
 
 
             <div class="jumbotron text-center" style="margin-bottom:0; margin-top:20px">
-                <p>Belíssima Cosméticos - Av. Pratagy, Benedito Bentes I - Fone: (82) </p>
-                <p>Copyright@2018 - Todos os direitos reservados | Desenvolvido por Davi Bispo - (82) 99969-3407</p>
+                <p>Belíssima Cosméticos - Av. Pratagy nº 319b, Benedito Bentes I - Fone: (82) 98115-2999</p>
+                <p>Copyright &#174 {{date('Y')}} - Todos os direitos reservados | by Davi Bispo - (82) 99969-3407</p>
             </div>
 
 

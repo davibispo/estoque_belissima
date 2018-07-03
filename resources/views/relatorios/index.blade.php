@@ -10,7 +10,7 @@
                 <div class="card-body">
                     <input class="form-control" id="myInput" type="text" placeholder="Filtrar..">
                     <br>
-                    <table class="table table-bordered table-hover table-sm">
+                    <table class="table table-hover table-sm">
                         <tr>
                             <th colspan="2">Produtos vendidos</th>
                             <th>Valor (R$)</th>
