@@ -57,6 +57,7 @@
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="{{route('relatorios.index')}}">Geral</a>
                                     <a class="dropdown-item" href="{{ route('relatorios.resumido') }}">Resumo do dia</a>
+                                    <a class="dropdown-item" href="{{ route('relatorios.periodo') }}">Resumo por período</a>
                                 </div>
                             </li> 
                             <li style="padding-right:5px"><a href="{{route('vendas.index')}}" class="btn btn-success btn-sm">VENDA</a></li> 

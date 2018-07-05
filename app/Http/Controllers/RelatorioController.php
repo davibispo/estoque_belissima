@@ -22,9 +22,9 @@ class RelatorioController extends Controller
         return view('relatorios.index', compact('vendas','numProdutosVendidos','valorTotal','total'));
     }
 
+    // uma data é selecionada e o relatorio é gerado
     public function resumido(Request $request){
-
-        
+      
         $data = $request->data;
         
         $vendas = Venda::all()->where('ativo', '1')->where('status', '2')->where('data_venda', $data)->sortByDesc('data_venda');
@@ -34,6 +34,19 @@ class RelatorioController extends Controller
         $valorTotal = DB::table('vendas')->where('ativo','1')->where('status','2')->where('data_venda', $data)->sum('preco');
 
         return view('relatorios.resumido', compact('vendas','numProdutosVendidos','valorTotal'));
+    }
+
+    // duas datas são escolhidas e o relatorio é gerado 
+    public function periodo(Request $request){
+       
+        $dataInicio = $request->dataInicio;
+        $dataFim = $request->dataFim;
+
+        $numProdutosVendidos = DB::table('vendas')->where('ativo','1')->where('status','2')->whereBetween('data_venda', [$dataInicio, $dataFim])->count('id');
+        
+        $valorTotal = DB::table('vendas')->where('ativo','1')->where('status','2')->whereBetween('data_venda', [$dataInicio, $dataFim])->sum('preco');
+
+        return view('relatorios.periodo', compact('numProdutosVendidos','valorTotal','dataInicio','dataFim'));
     }
 
     /**
