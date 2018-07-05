@@ -26,7 +26,7 @@
                                 </td>
                                 <th>R$ {{number_format(DB::table('produtos')->select('valor')->where('id',$venda->produto_id)->value('valor'), 2, ',', '.')}}</th>
                                 <th>
-                                    {!! Form::model($venda, ['method'=>'DELETE','action'=>['VendaController@destroy', $venda->id]]) !!}
+                                    {!! Form::model($venda, ['method'=>'PATCH','action'=>['VendaController@update', $venda->id]]) !!}
                                         {!! Form::hidden('ativo', '0')!!}
                                         {!! Form::submit('', ['class'=>'btn btn-danger btn-sm', 'style'=>'font-size:5px', 'data-toggle'=>'tooltip', 'title'=>'Remover item'])!!}
                                     {!! Form::close() !!}

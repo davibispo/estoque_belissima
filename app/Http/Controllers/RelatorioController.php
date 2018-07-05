@@ -9,13 +9,13 @@ use Illuminate\Support\Facades\DB;
 class RelatorioController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Lista de Produtos do Relatório GERAL
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index() 
     {
-        $vendas = Venda::all()->where('ativo', '1')->where('status', '2')->sortByDesc('data_venda');
+        $vendas = Venda::all()->where('ativo', '1')->where('status', '2')->sortByDesc('created_at');
         $numProdutosVendidos = DB::table('vendas')->where('ativo','1')->where('status','2')->count('id');
         $valorTotal = DB::table('vendas')->where('ativo','1')->where('status','2')->sum('preco');
 
@@ -27,7 +27,7 @@ class RelatorioController extends Controller
       
         $data = $request->data;
         
-        $vendas = Venda::all()->where('ativo', '1')->where('status', '2')->where('data_venda', $data)->sortByDesc('data_venda');
+        $vendas = Venda::all()->where('ativo', '1')->where('status', '2')->where('data_venda', $data)->sortBy('created_at');
         
         $numProdutosVendidos = DB::table('vendas')->where('ativo','1')->where('status','2')->where('data_venda', $data)->count('id');
         

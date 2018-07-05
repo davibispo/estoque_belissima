@@ -31,11 +31,11 @@ class VendaController extends Controller
 
         //soma o valor dos produtos
         foreach($vendas as $venda){
-            foreach($produtos as $produto){
-                if($venda->status == 1 && $venda->produto_id == $produto->id && $venda->ativo == '1'){
-                    $valorTotal += $produto->valor;
-                }    
-            }
+
+            if($venda->status == '1' && $venda->ativo == '1'){
+                $valorTotal += $venda->preco;
+            }    
+            
         }
        
         return view('vendas.index', compact('produtos', 'vendas', 'valorTotal', 'numProdutosNaCesta'));
@@ -97,31 +97,32 @@ class VendaController extends Controller
      */
     public function edit($id)
     {
-
+        //
     }
 
     /**
-     * Update the specified resource in storage.
+     * Muda o campo ativo da tabela venda para 0, inativando o mesmo para
+     * REMOVER O PRODUTO DA CESTA.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $produto_id)
     {
-        $venda = Venda::find($id);
 
-        $vendas = Venda::all()->where('status', '1')->where('ativo', '1');
+        $venda = Venda::find($produto_id);
+        $venda->ativo = $request->ativo;
+       
+        //associa o id do produto selecionado ao da tabela de produtos
+        $produto = Produto::find($venda->produto_id);
+
+        //incrementa de volta uma unidade na quantidade
+        DB::table('produtos')->where('ativo', '1')->where('id', $venda->produto_id)->increment('quantidade', 1);
+               
+        $venda->update();
         
-        foreach($vendas as $venda){
-
-            $venda->status = $request->status;
-            $venda->user_id = auth()->user()->id;
-            
-            $venda->update();
-        }
-
-        return redirect()->back()->with('alertSuccess', 'Venda concluída com sucesso!');
+        return redirect()->back();
 
     }
 
@@ -133,18 +134,15 @@ class VendaController extends Controller
      */
     public function destroy($produto_id)
     {
-        $venda = Venda::find($produto_id);
-        $venda->ativo = '0';
-
-        $venda->update();
-
-        return redirect()->back();
+        //
     }
 
+    // Conclui a venda mudando o status para 2 e incrementa 1 em cada cesta anterior.
     public function concluirVenda(){
 
         DB::table('vendas')->where('ativo','1')->where('status','1')->update(['status'=> '2']);
-        DB::table('vendas')->where('ativo','1')->where('status','2')->increment('cesta',1);
+        DB::table('vendas')->where('ativo','1')->where('status','2')->increment('cesta', 1);
         return redirect()->back()->with('alertSuccess', 'Venda concluída com sucesso!');
+
     }
 }
