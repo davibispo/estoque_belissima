@@ -18,7 +18,10 @@ class ProdutoController extends Controller
     public function index()
     {
         $produtos = Produto::all()->where('ativo', '1')->sortByDesc('id');
-        return view('produtos.index', compact('produtos'));
+
+        $qdtProdutos = DB::table('produtos')->where('ativo','1')->count('id');
+
+        return view('produtos.index', compact('produtos','qdtProdutos'));
     }
 
     /**
