@@ -33,7 +33,7 @@ class RelatorioController extends Controller
         
         $valorTotal = DB::table('vendas')->where('ativo','1')->where('status','2')->where('data_venda', $data)->sum('preco');
 
-        return view('relatorios.resumido', compact('vendas','numProdutosVendidos','valorTotal'));
+        return view('relatorios.resumido', compact('vendas','numProdutosVendidos','valorTotal','data'));
     }
 
     // duas datas são escolhidas e o relatorio é gerado 

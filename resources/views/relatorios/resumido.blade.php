@@ -10,17 +10,21 @@
                 <div class="card-body">
                     <div class="container">
                     {!! Form::open(['method'=>'post', 'action'=>'RelatorioController@resumido', 'class'=>'form-inline']) !!}
-                        {!! Form::label('data', 'Escolha o dia:', ['class'=>'mr-sm-2']) !!}
+                        <b>{!! Form::label('data', 'Dia:', ['class'=>'mr-sm-2']) !!}</b>
                         {!! Form::date('data', null, ['class'=>'form-control mr-sm-2']) !!}
                         {!! Form::submit('Ver',['class'=>'btn btn-success']) !!}
                     {!! Form::close() !!}
                     </div>
                     <br>
+                    <a onclick="javascript:window.print();" class="btn btn-link">
+                        <i class="fas fa-print"></i>
+                        <b>Impressão</b>
+                    </a>
                     <table class="table table-bordered table-dark table-striped text-center">
                         <tbody>
                             <tr>
                                 <td style="width:50%">Número de produtos vendidos</td>
-                                <td style="width:50%">Valor total do dia</td>
+                                <td style="width:50%">Valor total do dia <b>{{ date('d-m-y', strtotime($data)) }}</b></td>
                             </tr>
                             <tr>
                                 <th><h3>{{ $numProdutosVendidos }}</h3></th>

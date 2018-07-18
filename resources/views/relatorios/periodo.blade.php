@@ -9,7 +9,6 @@
 
                 <div class="card-body">
                     <div class="container">
-                        <p><b>Selecione a data inicial e final do período desejado:</b></p>
                     {!! Form::open(['method'=>'post', 'action'=>'RelatorioController@periodo', 'class'=>'form-inline']) !!}
                         <b>{!! Form::label('dataInicio', 'de:', ['class'=>'mr-sm-2']) !!}</b>
                         {!! Form::date('dataInicio', null, ['class'=>'form-control mr-sm-2','required']) !!}
@@ -18,13 +17,17 @@
                         {!! Form::submit('Ver',['class'=>'btn btn-success']) !!}
                     {!! Form::close() !!}
                     </div>
-                    <br><br>
+                    <br>
+                    <a onclick="javascript:window.print();" class="btn btn-link">
+                        <i class="fas fa-print"></i>
+                        <b>Impressão</b>
+                    </a>
                     <table class="table table-bordered table-dark table-striped text-center">
                         <tbody>
                             <tr>
-                                <th colspan="2">
+                                <td colspan="2">
                                     Relatório de vendas do período de <b>{{ date('d-m-Y', strtotime($dataInicio)) }}</b> a <b>{{ date('d-m-Y', strtotime($dataFim)) }}</b>
-                                </th>
+                                </td>
                             </tr>
                             <tr>
                                 <td style="width:50%">Número de produtos vendidos</td>

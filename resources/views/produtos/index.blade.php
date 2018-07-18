@@ -11,6 +11,10 @@
                     <h5>Existem <b>{{ $qdtProdutos }}</b> produtos cadastrados.</h5>
                     <input class="form-control" id="myInput" type="text" placeholder="Filtrar..">
                     <br>
+                    <a onclick="javascript:window.print();" class="btn btn-link">
+                        <i class="fas fa-print"></i>
+                        <b>Impressão</b>
+                    </a>
                     <table class="table table-hover table-sm">
                         <tr>
                             <th>Código</th>
