@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header text-center" style="background-color:thistle;"><b>ESTOQUE</b></div>
 
-                <div class="card-body">
+                <div class="card-body" style="overflow:auto; height: 500px;">
                     <h5>Existem <b>{{ $qdtProdutos }}</b> produtos cadastrados.</h5>
                     <input class="form-control" id="myInput" type="text" placeholder="Filtrar..">
                     <br>
