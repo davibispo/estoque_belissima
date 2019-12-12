@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header text-center" style="background-color:lightgreen;"><b>ABERTURA DE VENDA</b></div>
 
-                <div class="card-body">
+                <div class="card-body" style="overflow:auto; height: 500px;">
                     <table class="table" style="margin-bottom:0px; padding-bottom:0px">
                         <tr>
                             <td class="text-left"><h4>Produtos na cesta: <b>{{$numProdutosNaCesta}}</b></h4> </td>

@@ -13,20 +13,20 @@
                         <div class="form-group row">
                             {!! Form::label('codigo', 'Código do Produto', ['class'=>'col-sm-4 col-form-label text-md-right']) !!}
                             <div class="col-md-6">
-                                {!! Form::text('codigo', null, ['class'=>'form-control']) !!}
+                                {!! Form::text('codigo', null, ['class'=>'form-control','autofocus']) !!}
                             </div>
                         </div>
                         
                         <div class="form-group row">
                             {!! Form::label('nome', 'Nome', ['class'=>'col-sm-4 col-form-label text-md-right']) !!}
                             <div class="col-md-6">
-                                {!! Form::text('nome', null, ['class'=>'form-control', 'required']) !!}
+                                {!! Form::text('nome', null, ['class'=>'form-control', 'required','autofocus']) !!}
                             </div>
                         </div>
                         <div class="form-group row">
                             {!! Form::label('valor', 'Valor', ['class'=>'col-sm-4 col-form-label text-md-right']) !!}
                             <div class="col-md-6">
-                                {!! Form::text('valor', null, ['class'=>'form-control', 'required']) !!}
+                                {!! Form::text('valor', null, ['class'=>'form-control', 'required','autofocus']) !!}
                             </div>
                         </div>
                         <div class="form-group row">
@@ -38,7 +38,7 @@
                         <div class="form-group row">
                             {!! Form::label('quantidade', 'Quantidade', ['class'=>'col-sm-4 col-form-label text-md-right']) !!}
                             <div class="col-md-6">
-                                {!! Form::text('quantidade', 1, ['class'=>'form-control', 'required']) !!}
+                                {!! Form::text('quantidade', 1, ['class'=>'form-control', 'required','autofocus']) !!}
                             </div>
                         </div>
 
