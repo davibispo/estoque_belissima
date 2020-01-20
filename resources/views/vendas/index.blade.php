@@ -46,7 +46,7 @@
                         </tr>
                     </table>
                     
-                    <input name="produto_id" class="form-control" id="myInput" type="text" placeholder="Filtrar..">                          
+                    <input name="produto_id" class="form-control" id="myInput" type="text" placeholder="Filtrar.." autofocus>                          
                     <br>
                     <h5>ESTOQUE DISPONÍVEL</h5>
                     <table class="table table-hover table-sm">

@@ -17,9 +17,7 @@ class VendaController extends Controller
     public function index()
     {
         $produtos = Produto::all()->where('ativo', '1')->where('quantidade', '>', 0)->sortByDesc('created_at');
-
         $vendas = Venda::all()->where('ativo', '1')->where('status', '1');
-
         $numProdutosNaCesta = DB::table('vendas')->where('ativo', '1')->where('status', '1')->count('id');
 
         $valorTotal = 0;
@@ -48,7 +46,27 @@ class VendaController extends Controller
      */
     public function create()
     {
-        //
+        $produtos = Produto::all()->where('ativo', '1')->where('quantidade', '>', 0)->sortBy('nome');
+        $vendas = Venda::all()->where('ativo', '1')->where('status', '1');
+        $numProdutosNaCesta = DB::table('vendas')->where('ativo', '1')->where('status', '1')->count('id');
+
+        $valorTotal = 0;
+
+        /*
+            status = 1 -> Colocando produtos na cesta
+            status = 2 -> Produtos vendidos
+        */
+
+        //soma o valor dos produtos
+        foreach($vendas as $venda){
+
+            if($venda->status == '1' && $venda->ativo == '1'){
+                $valorTotal += $venda->preco;
+            }    
+            
+        }
+
+        return view('vendas.create', compact('produtos','vendas','valorTotal','numProdutosNaCesta'));
     }
 
     /**

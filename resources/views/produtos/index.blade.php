@@ -9,7 +9,7 @@
 
                 <div class="card-body" style="overflow:auto; height: 500px;">
                     <h5>Existem <b>{{ $qdtProdutos }}</b> produtos cadastrados.</h5>
-                    <input class="form-control" id="myInput" type="text" placeholder="Filtrar..">
+                    <input class="form-control" id="myInput" type="text" placeholder="Filtrar.." autofocus>
                     <br>
                     <a onclick="javascript:window.print();" class="btn btn-link">
                         <i class="fas fa-print"></i>
