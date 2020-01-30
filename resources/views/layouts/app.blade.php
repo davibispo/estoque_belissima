@@ -50,7 +50,7 @@
                     <ul class="navbar-nav mr-auto">
                         @guest  
                         @else
-                            <li style="padding-right:5px"><a href="{{route('produtos.create')}}" class="btn btn-outline-dark btn-sm">Cadastrar Novo Produto</a></li> 
+                            <li style="padding-right:5px"><a href="{{route('produtos.create')}}" class="btn btn-outline-dark btn-sm">Cadastrar Produto</a></li> 
                             <li style="padding-right:5px"><a href="{{route('produtos.index')}}" class="btn btn-outline-dark btn-sm">Estoque</a></li> 
                             <li style="padding-right:25px" class="nav-item dropdown">
                                 <a class="btn btn-outline-dark btn-sm dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Relatórios</a>
@@ -116,9 +116,10 @@
 
 
             <div class="jumbotron text-center" style="margin-bottom:0; margin-top:20px">
-                <p>Belíssima Cosméticos - Av. Pratagy nº 319b, Benedito Bentes I - Fone: (82) 98115-2999</p>
-                <p>Copyright &#174 {{date('Y')}} - Todos os direitos reservados</p>
-                <p style="font-size:11px">Desenvolvido por Davi Bispo - (82) 99969-3407</p>
+                <p><b>Belíssima Cosméticos - Av. Pratagy nº 319b, Benedito Bentes I - Fone: (82) 98115-2999</b>
+                    <br>Copyright &#174 2018-{{date('Y')}} - Todos os direitos reservados
+                    <br>Desenvolvido por Davi Bispo - (82) 99969-3407
+                </p>
             </div>
 
 

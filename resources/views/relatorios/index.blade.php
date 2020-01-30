@@ -9,7 +9,7 @@
 
                 <div class="card-body">
                     <input class="form-control" id="myInput" type="text" placeholder="Filtrar..">
-                    <br>
+                    <div style="overflow:auto; height: 480px;">
                     <table class="table table-hover table-sm">
                         <tr>
                             <th colspan="2">Produtos vendidos</th>
@@ -33,8 +33,8 @@
                             <p>Não há vendas ainda!</p>
                         </div>
                         @endforelse
-                        
                     </table>
+                    </div>
                 </div>
             </div>
         </div>

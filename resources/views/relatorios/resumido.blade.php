@@ -24,7 +24,7 @@
                         <tbody>
                             <tr>
                                 <td style="width:50%">Número de produtos vendidos</td>
-                                <td style="width:50%">Valor total do dia <b>{{ date('d-m-y', strtotime($data)) }}</b></td>
+                                <td style="width:50%">Valor total do dia <b>{{ date('d-m-Y', strtotime($data)) }}</b></td>
                             </tr>
                             <tr>
                                 <th><h3>{{ $numProdutosVendidos }}</h3></th>
@@ -38,6 +38,7 @@
                                 <th colspan="2">Produtos vendidos</th>
                                 <th>R$</th>
                                 <th>Dia e hora</th>
+                                <th>Vendedor(a)</th>
                             </tr>
                             @foreach ($vendas as $venda)
                             <tbody id="myTable" style="font-size:12px">
@@ -49,6 +50,7 @@
                                 </td>
                                 <td>{{number_format(DB::table('vendas')->select('preco')->where('produto_id', $venda->produto_id)->value('preco'), 2, ',', '.')}}</td>
                                 <td>{{date('d/m/y', strtotime($venda->data_venda))}} - {{date('H:i', strtotime($venda->created_at))}}</td>
+                                <td> {{$venda->user_id}} </td>
                             </tr>
                             </tbody>
                             @endforeach

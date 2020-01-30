@@ -13,7 +13,7 @@
                             <!-- Tela de Venda (Esquerda) -->
                             <div class="col-sm-7 tela-venda" style="">
                                 <div class="alert alert-success">
-                                    <p>TELA DE VENDA</p>
+                                    <p><b>TELA DE VENDA</b></p>
                                     
                                     {!! Form::open(['method'=>'POST','action'=>['VendaController@store']]) !!}
                                         {!! Form::text('codigo', null, ['class'=>'form-control','autofocus','placeholder'=>'Código do Produto..']) !!}
@@ -50,7 +50,7 @@
                                 </div>
                             </div>
                             <!-- Tela de Comprovante (Direita) -->
-                            <div class="col-sm-5 tela-venda" style="background-color:khaki; overflow:auto; height: 400px;">
+                            <div class="col-sm-5 tela-venda" style="background-color:khaki; overflow:auto; height: 480px;">
                                 COMPROVANTE <br>
                                 <table class="table" style="margin-bottom:0px; padding-bottom:0px">
                                     <tr>
@@ -85,7 +85,7 @@
                                    
                                     <tr>
                                         <th colspan="5" class="text-right">
-                                            <a href="{{route('vendas.concluir-venda')}}" class="btn btn-success">CONCLUIR VENDA</a>
+                                            <a href="{{route('vendas.concluir-venda')}}" accesskey="t" class="btn btn-success" data-toggle="tooltip" title="ALT + T">CONCLUIR VENDA</a>
                                         </th>   
                                     </tr>
                                 </table>

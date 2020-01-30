@@ -78,26 +78,35 @@ class VendaController extends Controller
     public function store(Request $request)
     {
 
-        $existe = DB::table('produtos')->select('codigo')->where('codigo',$request->codigo)->exists();
+        $existe = DB::table('produtos')
+                        ->select('codigo')
+                        ->where('ativo', '1')
+                        ->where('codigo',$request->codigo)
+                        ->where('quantidade', '>', 0)
+                        ->exists();
         //dd($existe);
-        $produto = Produto::find($request->codigo);
-        dd($produto);
-        if(isset($existe)){
+        
+        if($existe == true){
+
+            $produtoId = DB::table('produtos')->select('id')->where('codigo', $request->codigo)->value('id');
+            $produtoValor = DB::table('produtos')->select('valor')->where('codigo', $request->codigo)->value('valor');
 
             $venda = new Venda();
     
-            $venda->produto_id = $produto->id;
-            $venda->preco = $produto->preco;
+            $venda->produto_id = $produtoId;
+            $venda->preco = $produtoValor;
             $venda->data_venda = date("Y-m-d H:i:s");
             $venda->user_id = auth()->user()->id;
             $venda->cesta = 0;
     
             //decrementa uma unidade
-            DB::table('produtos')->where('id', $produto->id)->decrement('quantidade', 1);
+            DB::table('produtos')->where('codigo', $request->codigo)->decrement('quantidade', 1);
     
             $venda->save();
     
             return redirect()->back();
+        }else{
+            return redirect()->back()->with('alertDanger','Produto não existe em estoque!');
         }
     }
 
