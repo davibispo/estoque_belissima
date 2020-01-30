@@ -77,23 +77,28 @@ class VendaController extends Controller
      */
     public function store(Request $request)
     {
-        $venda = new Venda();
 
-        $venda->produto_id = $request->produto_id;
-        $venda->preco = $request->preco;
-        $venda->data_venda = date("Y-m-d H:i:s");
-        $venda->user_id = auth()->user()->id;
-        $venda->cesta = 0;
+        $existe = DB::table('produtos')->select('codigo')->where('codigo',$request->codigo)->exists();
+        //dd($existe);
+        $produto = Produto::find($request->codigo);
+        dd($produto);
+        if(isset($existe)){
 
-        //associa o id do produto selecionado ao da tabela de produtos
-        $produto = Produto::find($request->produto_id);
-
-        //decrementa uma unidade
-        DB::table('produtos')->where('id', $request->produto_id)->decrement('quantidade', 1);
-
-        $venda->save();
-
-        return redirect()->back();
+            $venda = new Venda();
+    
+            $venda->produto_id = $produto->id;
+            $venda->preco = $produto->preco;
+            $venda->data_venda = date("Y-m-d H:i:s");
+            $venda->user_id = auth()->user()->id;
+            $venda->cesta = 0;
+    
+            //decrementa uma unidade
+            DB::table('produtos')->where('id', $produto->id)->decrement('quantidade', 1);
+    
+            $venda->save();
+    
+            return redirect()->back();
+        }
     }
 
     /**

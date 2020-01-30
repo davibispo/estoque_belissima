@@ -5,41 +5,40 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header text-center" style="background-color:lightgreen;"><b>ABERTURA DE VENDA</b></div>
-
+                
                 <div class="card-body">
                     
                     <div class="container-fluid">
                         <div class="row">
                             <!-- Tela de Venda (Esquerda) -->
-                            <div class="col-sm-7 tela-venda" style="background-color:lavender;">
-                                Tela de Venda <br>
-                                <input name="produto_id" class="form-control" id="myInput" type="text" placeholder="Filtrar.." autofocus>                          
-                                <br>
-                                <h5>PRODUTOS DISPONÍVEIS</h5>
+                            <div class="col-sm-7 tela-venda" style="">
+                                <div class="alert alert-success">
+                                    <p>TELA DE VENDA</p>
+                                    
+                                    {!! Form::open(['method'=>'POST','action'=>['VendaController@store']]) !!}
+                                        {!! Form::text('codigo', null, ['class'=>'form-control','autofocus','placeholder'=>'Código do Produto..']) !!}
+                                        {!! Form::submit('Adicionar', ['class'=>'form-control btn btn-success btn-sm','style'=>'margin-top:10px', 'data-toggle'=>'tooltip', 'title'=>'Colocar na sacola'])!!}
+                                    {!! Form::close() !!}
+                                    
+                                </div>    
+                                <hr>
+                                <h5>Consultar Produto</h5>
+                                <input name="produto_id" value="" class="form-control" id="myInput" type="text" placeholder="Pesquisa.." autofocus>                          
+                                <div style="overflow:auto; height: 250px;">
                                 <table class="table table-hover table-sm">
                                     <tr>
                                         <th>Código</th>
                                         <th>Produtos</th>
                                         <th style="width:10%">Valor (R$)</th>
                                         <th style="width:5%">Qtd</th>
-                                        <th>Adicionar</th>
                                     </tr>
                                     @forelse ($produtos as $produto)
-                                    <tbody id="myTable" style="font-size:12px">
+                                    <tbody id="myTable" style="font-size:12px;">
                                     <tr>
                                         <td>{{$produto->codigo}}</td>
                                         <td>{{$produto->nome}} - {{$produto->descricao}}</td>
                                         <th>{{number_format($produto->valor, 2, ',', '.')}}</th>
                                         <td>{{$produto->quantidade}}</td>
-                                        
-                                        <td style="width:1%">
-                                            {!! Form::open(['method'=>'POST','action'=>['VendaController@store', $produto->id]]) !!}
-                                                {!! Form::hidden('produto_id', $produto->id) !!}
-                                                {!! Form::hidden('preco', $produto->valor) !!}
-                                                {!! Form::submit('', ['class'=>'btn btn-success btn-sm', 'style'=>'font-size:5px', 'data-toggle'=>'tooltip', 'title'=>'Colocar na cesta'])!!}
-                                            {!! Form::close() !!}
-                                        </td>
                                     </tr>
                                     </tbody>    
                                     @empty
@@ -48,9 +47,10 @@
                                         </div>
                                     @endforelse
                                 </table>
+                                </div>
                             </div>
                             <!-- Tela de Comprovante (Direita) -->
-                            <div class="col-sm-5 tela-venda" style="background-color:khaki;">
+                            <div class="col-sm-5 tela-venda" style="background-color:khaki; overflow:auto; height: 400px;">
                                 COMPROVANTE <br>
                                 <table class="table" style="margin-bottom:0px; padding-bottom:0px">
                                     <tr>
@@ -59,13 +59,13 @@
                                     </tr>
                                 </table>
                                                    
-                                <table class="table table-sm">
+                                <table class="table table-sm" style="font-size:12px">
                                     @forelse ($vendas as $venda)
                                     <tbody>
                                         <tr>
                                             <td>{{DB::table('produtos')->select('codigo')->where('id',$venda->produto_id)->value('codigo')}}</td>
                                             <td>
-                                                {{DB::table('produtos')->select('nome')->where('id',$venda->produto_id)->value('nome')}} - 
+                                                
                                                 {{DB::table('produtos')->select('descricao')->where('id',$venda->produto_id)->value('descricao')}}
                                             </td>
                                             <th>R$ {{number_format(DB::table('produtos')->select('valor')->where('id',$venda->produto_id)->value('valor'), 2, ',', '.')}}</th>
