@@ -44,10 +44,7 @@
                             <tbody id="myTable" style="font-size:12px">
                             <tr>
                                 <td>{{DB::table('produtos')->select('codigo')->where('id', $venda->produto_id)->value('codigo')}}</td>
-                                <td>
-                                    {{DB::table('produtos')->select('nome')->where('id', $venda->produto_id)->value('nome')}} - 
-                                    {{DB::table('produtos')->select('descricao')->where('id', $venda->produto_id)->value('descricao')}}
-                                </td>
+                                <td>{{DB::table('produtos')->select('descricao')->where('id', $venda->produto_id)->value('descricao')}}</td>
                                 <td>{{number_format(DB::table('vendas')->select('preco')->where('produto_id', $venda->produto_id)->value('preco'), 2, ',', '.')}}</td>
                                 <td>{{date('d/m/y', strtotime($venda->data_venda))}} - {{date('H:i', strtotime($venda->created_at))}}</td>
                                 <td> {{$venda->user_id}} </td>

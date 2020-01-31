@@ -18,9 +18,9 @@
                         </div>
                         
                         <div class="form-group row">
-                            {!! Form::label('nome', 'Nome', ['class'=>'col-sm-4 col-form-label text-md-right']) !!}
+                            {!! Form::label('descricao', 'Descrição', ['class'=>'col-sm-4 col-form-label text-md-right']) !!}
                             <div class="col-md-6">
-                                {!! Form::text('nome', null, ['class'=>'form-control', 'required','autofocus']) !!}
+                                {!! Form::text('descricao', null, ['class'=>'form-control','maxlength'=>'60', 'required','autofocus']) !!}
                             </div>
                         </div>
                         <div class="form-group row">
@@ -29,12 +29,7 @@
                                 {!! Form::text('valor', null, ['class'=>'form-control', 'required','autofocus']) !!}
                             </div>
                         </div>
-                        <div class="form-group row">
-                            {!! Form::label('descricao', 'Descrição', ['class'=>'col-sm-4 col-form-label text-md-right']) !!}
-                            <div class="col-md-6">
-                                <textarea name="descricao" rows="3" class="form-control" value="descricao"></textarea>
-                            </div>
-                        </div>
+                        
                         <div class="form-group row">
                             {!! Form::label('quantidade', 'Quantidade', ['class'=>'col-sm-4 col-form-label text-md-right']) !!}
                             <div class="col-md-6">

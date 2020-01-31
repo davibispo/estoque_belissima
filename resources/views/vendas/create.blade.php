@@ -36,7 +36,7 @@
                                     <tbody id="myTable" style="font-size:12px;">
                                     <tr>
                                         <td>{{$produto->codigo}}</td>
-                                        <td>{{$produto->nome}} - {{$produto->descricao}}</td>
+                                        <td>{{$produto->descricao}}</td>
                                         <th>{{number_format($produto->valor, 2, ',', '.')}}</th>
                                         <td>{{$produto->quantidade}}</td>
                                     </tr>
@@ -64,10 +64,7 @@
                                     <tbody>
                                         <tr>
                                             <td>{{DB::table('produtos')->select('codigo')->where('id',$venda->produto_id)->value('codigo')}}</td>
-                                            <td>
-                                                
-                                                {{DB::table('produtos')->select('descricao')->where('id',$venda->produto_id)->value('descricao')}}
-                                            </td>
+                                            <td>{{mb_strimwidth(DB::table('produtos')->select('descricao')->where('id',$venda->produto_id)->value('descricao'), 0, 30, "...")}}</td>
                                             <th>R$ {{number_format(DB::table('produtos')->select('valor')->where('id',$venda->produto_id)->value('valor'), 2, ',', '.')}}</th>
                                             <th>
                                                 {!! Form::model($venda, ['method'=>'PATCH','action'=>['VendaController@update', $venda->id]]) !!}
