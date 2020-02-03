@@ -106,7 +106,7 @@ class VendaController extends Controller
     
             return redirect()->back();
         }else{
-            return redirect()->back()->with('alertDanger','Produto não existe em estoque!');
+            return redirect()->back()->with('alertDanger','Produto não encontrado!');
         }
     }
 

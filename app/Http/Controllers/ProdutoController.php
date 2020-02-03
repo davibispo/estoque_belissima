@@ -53,7 +53,7 @@ class ProdutoController extends Controller
 
         $p->save();
 
-        return redirect()->route('produtos.index')->with('alertSuccess', 'Produto cadastrado com sucesso!');
+        return redirect()->back()->with('alertSuccess', 'Produto cadastrado com sucesso!');
     }
 
     /**
