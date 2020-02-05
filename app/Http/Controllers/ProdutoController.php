@@ -31,7 +31,8 @@ class ProdutoController extends Controller
      */
     public function create()
     {
-        return view('produtos.create');
+        $produtos = Produto::all()->where('ativo', '1')->sortByDesc('id');
+        return view('produtos.create', compact('produtos'));
     }
 
     /**
@@ -53,7 +54,7 @@ class ProdutoController extends Controller
 
         $p->save();
 
-        return redirect()->back()->with('alertSuccess', 'Produto cadastrado com sucesso!');
+        return redirect()->back();
     }
 
     /**

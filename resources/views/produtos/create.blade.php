@@ -24,7 +24,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            {!! Form::label('valor', 'Valor', ['class'=>'col-sm-4 col-form-label text-md-right']) !!}
+                            {!! Form::label('valor', 'Valor (R$)', ['class'=>'col-sm-4 col-form-label text-md-right']) !!}
                             <div class="col-md-6">
                                 {!! Form::text('valor', null, ['class'=>'form-control', 'required','autofocus']) !!}
                             </div>
@@ -44,6 +44,41 @@
                             </div>
                         </div>
                     {!!Form::close()!!}
+                    <br>
+                    <div style="overflow:auto; height: 300px;">
+                        <table class="table table-hover table-sm">
+                            <tr>
+                                <th>Código</th>
+                                <th>Descrição</th>
+                                <th style="width:10%">R$</th>
+                                <th style="width:5%">Qtd</th>
+                                <th colspan="2" class="text-center">Ações</th>
+                            </tr>
+                            @forelse ($produtos as $produto)
+                            <tbody id="myTable" style="font-size:12px">
+                            <tr>
+                                <td>{{$produto->codigo}}</td>
+                                <td>{{$produto->descricao}}</td>
+                                <th>{{number_format($produto->valor, 2, ',', '.')}}</th>
+                                <td>{{$produto->quantidade}}</td>
+                                <td style="width:1%">
+                                    <a href="{{route('produtos.edit', $produto->id)}}" class="btn btn-warning btn-sm" data-toggle="tooltip", title="Editar" style="font-size:5px">.</a>
+                                </td>
+                                <td style="width:1%">
+                                    {!! Form::model($produto, ['method'=>'DELETE','action'=>['ProdutoController@destroy', $produto->id]]) !!}
+                                        {!! Form::hidden('ativo', '0')!!}
+                                        {!! Form::submit('', ['class'=>'btn btn-danger btn-sm', 'style'=>'font-size:5px', 'data-toggle'=>'tooltip', 'title'=>'Excluir'])!!}
+                                    {!! Form::close() !!}
+                                </td>
+                            </tr>
+                            </tbody>    
+                            @empty
+                                <div class="alert alert-warning">
+                                    <p>Não há produtos cadastrados!</p>
+                                </div>
+                            @endforelse
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

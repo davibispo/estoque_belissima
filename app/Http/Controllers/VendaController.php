@@ -77,7 +77,6 @@ class VendaController extends Controller
      */
     public function store(Request $request)
     {
-
         $existe = DB::table('produtos')
                         ->select('codigo')
                         ->where('ativo', '1')
@@ -92,7 +91,6 @@ class VendaController extends Controller
             $produtoValor = DB::table('produtos')->select('valor')->where('codigo', $request->codigo)->value('valor');
 
             $venda = new Venda();
-    
             $venda->produto_id = $produtoId;
             $venda->preco = $produtoValor;
             $venda->data_venda = date("Y-m-d H:i:s");
@@ -106,7 +104,7 @@ class VendaController extends Controller
     
             return redirect()->back();
         }else{
-            return redirect()->back()->with('alertDanger','Produto não encontrado!');
+            return redirect()->back()->with('alertDanger', 'Produto não encontrado!');
         }
     }
 
