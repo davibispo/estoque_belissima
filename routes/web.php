@@ -1,5 +1,7 @@
 <?php
 
+
+Route::get('vendas/impressao', 'VendaController@impressao')->name('vendas.impressao');
 Route::get('vendas/concluir-venda', 'VendaController@concluirVenda')->name('vendas.concluir-venda');
 
 Route::get('relatorios/periodo', 'RelatorioController@periodo')->name('relatorios.periodo');

@@ -16,7 +16,7 @@
                                     <p><b>TELA DE VENDA</b></p>
                                     {!! Form::open(['method'=>'POST','action'=>['VendaController@store']]) !!}
                                         {!! Form::text('codigo', null, ['class'=>'form-control','autofocus','placeholder'=>'Código do Produto..']) !!}
-                                        {!! Form::submit('Adicionar', ['class'=>'form-control btn btn-success btn-sm','style'=>'margin-top:10px', 'data-toggle'=>'tooltip', 'title'=>'Colocar na sacola'])!!}
+                                        {!! Form::submit('Adicionar', ['class'=>'form-control btn btn-primary btn-sm','style'=>'margin-top:10px', 'data-toggle'=>'tooltip', 'title'=>'Colocar na sacola'])!!}
                                     {!! Form::close() !!}    
                                 </div>    
                                 <hr>
