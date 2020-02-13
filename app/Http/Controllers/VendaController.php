@@ -178,26 +178,10 @@ class VendaController extends Controller
 
     //Impressao do comprovante
     public function impressao(){
-        $produtos = Produto::all()->where('ativo', '1')->where('quantidade', '>', 0)->sortBy('nome');
-        $vendas = Venda::all()->where('ativo', '1')->where('status', '1');
-        $numProdutosNaCesta = DB::table('vendas')->where('ativo', '1')->where('status', '1')->count('id');
+        
+        $vendas = Venda::all()->where('ativo', 1)->where('cesta', 1);
+        $produtos = Produto::all()->where('ativo', '1');
 
-        $valorTotal = 0;
-
-        /*
-            status = 1 -> Colocando produtos na cesta
-            status = 2 -> Produtos vendidos
-        */
-
-        //soma o valor dos produtos
-        foreach($vendas as $venda){
-
-            if($venda->status == '1' && $venda->ativo == '1'){
-                $valorTotal += $venda->preco;
-            }    
-            
-        }
-
-        return view('vendas.impressao', compact('produtos','vendas','valorTotal','numProdutosNaCesta'));
+        return view('vendas.impressao', compact('vendas','produtos'));
     }
 }
