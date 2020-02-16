@@ -8,6 +8,10 @@
                 <div class="card-header text-center" style="background-color:thistle;"><b>ESTOQUE</b></div>
 
                 <div class="card-body">
+                    <div class="text-left">
+                        <a href=" {{route('produtos.create')}} " class="btn btn-dark btn-sm">Cadastrar Novo Produto</a>
+                    </div>
+                    <br>
                     <h5>Existem <b>{{ $qdtProdutos }}</b> produtos cadastrados.</h5>
                     <input class="form-control" id="myInput" type="text" placeholder="Filtrar.." autofocus>
                     <div style="overflow:auto; height: 500px;">
