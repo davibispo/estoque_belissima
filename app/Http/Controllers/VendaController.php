@@ -173,7 +173,7 @@ class VendaController extends Controller
         DB::table('vendas')->where('ativo','1')->where('status','1')->update(['status'=> '2']);
         DB::table('vendas')->where('ativo','1')->where('status','2')->increment('cesta', 1);
 
-        return redirect()->route('vendas.impressao');
+        return redirect()->back();
     }
 
     //Impressao do comprovante
