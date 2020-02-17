@@ -3,23 +3,23 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-12">
+        <div class="col-md-8">
             <div class="card">
                 
                 <div class="card-body">
                     
-                    <div class="container-fluid">
+                    <div class="container-fluid" style="background-color:khaki;">
                         <div class="row">
                           <!-- Tela de Comprovante -->
-                            <div class="col-sm-6 tela-venda" style="background-color:khaki; overflow:auto; height: 480px;">
-                                COMPROVANTE NÃO FISCAL
+                            <div class="col-sm-12 tela-venda" style="background-color:khaki; overflow:auto; ">
+                                <p class="text-center">COMPROVANTE NÃO FISCAL</p> 
 
-                                <table class="">
+                                <table class="table" style="padding:0px">
                                     <thead>
                                         <tr>
                                             <th>Código Prod.</th>
                                             <th>Produto</th>
-                                            <th>Preço</th>
+                                            <th>R$</th>
                                         </tr>
                                     </thead>
                                     @foreach ($vendas as $item)
