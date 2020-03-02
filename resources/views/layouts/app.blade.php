@@ -51,7 +51,7 @@
                         @guest  
                         @else
                             
-                            <li style="padding-right:5px"><a href="{{route('produtos.index')}}" class="btn btn-outline-dark btn-sm">Estoque</a></li> 
+                            <li style="padding-right:5px"><a href="{{route('produtos.index')}}" class="btn btn-outline-dark btn-sm">Produtos</a></li> 
                             <li style="padding-right:25px" class="nav-item dropdown">
                                 <a class="btn btn-outline-dark btn-sm dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Relatórios</a>
                                 <div class="dropdown-menu">

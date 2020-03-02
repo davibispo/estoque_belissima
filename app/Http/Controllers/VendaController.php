@@ -102,7 +102,7 @@ class VendaController extends Controller
     
             $venda->save();
     
-            return redirect()->back();
+            return back();
         }else{
             return redirect()->back()->with('alertDanger', 'Produto não encontrado!');
         }

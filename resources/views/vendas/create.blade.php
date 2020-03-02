@@ -20,32 +20,7 @@
                                     {!! Form::close() !!}    
                                 </div>    
                                 <hr>
-                                <h5>Consultar Produto</h5>
-                                <input name="produto_id" value="" class="form-control" id="myInput" type="text" placeholder="Pesquisa..">                          
-                                <div style="overflow:auto; height: 250px;">
-                                <table class="table table-hover table-sm">
-                                    <tr>
-                                        <th>Código</th>
-                                        <th>Produtos</th>
-                                        <th style="width:10%">R$</th>
-                                        <th style="width:5%">Qtd</th>
-                                    </tr>
-                                    @forelse ($produtos as $produto)
-                                    <tbody id="myTable" style="font-size:12px;">
-                                    <tr>
-                                        <td>{{$produto->codigo}}</td>
-                                        <td>{{$produto->descricao}}</td>
-                                        <th>{{number_format($produto->valor, 2, ',', '.')}}</th>
-                                        <td>{{$produto->quantidade}}</td>
-                                    </tr>
-                                    </tbody>    
-                                    @empty
-                                        <div class="alert-warning">
-                                            <p>Não há produtos cadastrados!</p>
-                                        </div>
-                                    @endforelse
-                                </table>
-                                </div>
+                                
                             </div>
                             <!-- Tela de Comprovante (Direita) -->
                             <div class="col-sm-6 tela-venda" style="background-color:khaki; overflow:auto; height: 480px;">
