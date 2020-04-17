@@ -64,7 +64,7 @@
                                             {!! Form::close() !!}    
                                         </div>    
                                         <hr>
-                                        <div class="links">
+                                        <div class="links text-center">
                                             <a href="{{route('produtos.index')}}">CONSULTAR PRODUTOS</a>
                                             <a href="{{route('relatorios.index')}}">Relatórios</a>
                                         </div>
