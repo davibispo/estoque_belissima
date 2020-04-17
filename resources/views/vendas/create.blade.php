@@ -25,7 +25,7 @@
             }
 
             .container {
-                margin-top: 10%
+                margin-top: 5%
             }
 
             .links > a {
