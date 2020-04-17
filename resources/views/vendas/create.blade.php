@@ -1,70 +1,105 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-12">
-            <div class="card">
+        <title>Belíssima Cosméticos</title>
+
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+
+        <!-- Styles -->
+        <style>
+            html, body {
+                background-color:thistle;
+                color: #636b6f;
+                font-family: 'Nunito', sans-serif;
+                font-weight: 200;
+                height: 100vh;
+                margin: 0;
                 
-                <div class="card-body">
-                    
-                    <div class="container-fluid">
-                        <div class="row">
-                            <!-- Tela de Venda (Esquerda) -->
-                            <div class="col-sm-6 tela-venda" style="">
-                                <div class="alert alert-success">
-                                    <p><b>TELA DE VENDA</b></p>
-                                    {!! Form::open(['method'=>'POST','action'=>['VendaController@store']]) !!}
-                                        {!! Form::text('codigo', null, ['class'=>'form-control','autofocus','placeholder'=>'Código do Produto..']) !!}
-                                        {!! Form::submit('Adicionar', ['class'=>'form-control btn btn-primary btn-sm','style'=>'margin-top:10px', 'data-toggle'=>'tooltip', 'title'=>'Colocar na sacola'])!!}
-                                    {!! Form::close() !!}    
-                                </div>    
-                                <hr>
-                                
-                            </div>
-                            <!-- Tela de Comprovante (Direita) -->
-                            <div class="col-sm-6 tela-venda" style="background-color:khaki; overflow:auto; height: 480px;">
-                                COMPROVANTE <br>
-                                <table class="table" style="margin-bottom:0px; padding-bottom:0px">
-                                    <tr>
-                                        <td class="text-left"><h4>Itens: <b>{{$numProdutosNaCesta}}</b></h4> </td>
-                                        <td class="text-right"><h4>Total: <b>R$ {{number_format($valorTotal ,2,',','.')}}</b></h4> </td>
-                                    </tr>
-                                </table>             
-                                <table class="table table-sm" style="font-size:12px">
-                                    @forelse ($vendas as $venda)
-                                    <tbody>
-                                        <tr>
-                                            <td>{{DB::table('produtos')->select('codigo')->where('id',$venda->produto_id)->value('codigo')}}</td>
-                                            <td>{{mb_strimwidth(DB::table('produtos')->select('descricao')->where('id',$venda->produto_id)->value('descricao'), 0, 30, "...")}}</td>
-                                            <th>R$ {{number_format(DB::table('produtos')->select('valor')->where('id',$venda->produto_id)->value('valor'), 2, ',', '.')}}</th>
-                                            <th>
-                                                {!! Form::model($venda, ['method'=>'PATCH','action'=>['VendaController@update', $venda->id]]) !!}
-                                                    {!! Form::hidden('ativo', '0')!!}
-                                                    {!! Form::submit('', ['class'=>'btn btn-danger btn-sm', 'style'=>'font-size:5px', 'data-toggle'=>'tooltip', 'title'=>'Remover item'])!!}
-                                                {!! Form::close() !!}
-                                            </th>
-                                        </tr>
-                                    </tbody>    
-                                    @empty
-                                    <div class="alert alert-warning">
-                                        <p>Próximo cliente!</p>
-                                    </div>
-                                    @endforelse
-                                    <tr>
-                                        <th colspan="5" class="text-right">
-                                            <a href="{{route('vendas.concluir-venda')}}" accesskey="t" class="btn btn-success" data-toggle="tooltip" title="ALT + T">CONCLUIR VENDA</a>
-                                        </th>   
-                                    </tr>
-                                </table>
-                            </div>
+            }
+
+            .full-height {
+                height: 100vh;
+            }
+
+            .flex-center {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+
+            .position-ref {
+                position: relative;
+            }
+
+            .top-right {
+                position: absolute;
+                right: 10px;
+                top: 18px;
+            }
+
+            .content {
+                text-align: center;
+                background-color:#fff; 
+                padding:5%; 
+                border-radius:5%;
+            }
+
+            .title {
+                font-size: 84px;
+            }
+
+            .links > a {
+                color: #636b6f;
+                padding: 0 25px;
+                font-size: 13px;
+                font-weight: 600;
+                letter-spacing: .1rem;
+                text-decoration: none;
+                text-transform: uppercase;    
+            }
+
+            .links > a:hover {
+                text-decoration: underline;
+            }
+
+            .m-b-md {
+                margin-bottom: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">    
+                <div class="content col-sm-5">
+                    <div class="m-b-md">
+                        <h3>Módulo de Venda</h3>
+                        <div class="form-group">
+                            {!! Form::open(['method'=>'POST','action'=>['VendaController@store']]) !!}
+                                <input type="text" name="#" class="form-control" placeholder="Código do produto.." autofocus>
+                                <input type="submit" class="form-control" value="Registrar">
+                            {!! Form::close() !!} 
                         </div>
                     </div>
-                    
+
+                    <div class="links">
+                        <a href="{{route('produtos.index')}}" target="_blank">Consultar Produtos</a>
+                    </div>
+                </div>
+
+                <div class="content col-sm-5" style="margin-left:10px; overflow:auto; height: 400px; padding:3%">
+                    <p>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.</p>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-@endsection
+    </body>
+</html>
+
 
