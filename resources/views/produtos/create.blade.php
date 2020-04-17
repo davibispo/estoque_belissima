@@ -23,6 +23,7 @@
                                 {!! Form::text('descricao', null, ['class'=>'form-control','maxlength'=>'60', 'required','autofocus']) !!}
                             </div>
                         </div>
+                        
                         <div class="form-group row">
                             {!! Form::label('valor', 'Valor (R$)', ['class'=>'col-sm-4 col-form-label text-md-right']) !!}
                             <div class="col-md-6">

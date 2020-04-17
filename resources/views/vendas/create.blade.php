@@ -27,6 +27,20 @@
             .container {
                 margin-top: 10%
             }
+
+            .links > a {
+                color: #636b6f;
+                padding: 0 25px;
+                font-size: 13px;
+                font-weight: 600;
+                letter-spacing: .1rem;
+                text-decoration: none;
+                text-transform: uppercase;    
+            }
+
+            .links > a:hover {
+                text-decoration: underline;
+            }
             
         </style>
     </head>
@@ -35,6 +49,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-12">
                     <h3 class="text-center"><b>Módulo de Venda</b></h3>
+                    <p>Funcionário: {{ auth()->user()->name }}</p>
                     <div class="card">
                         <div class="card-body">
                             <div class="container-fluid">
@@ -49,6 +64,10 @@
                                             {!! Form::close() !!}    
                                         </div>    
                                         <hr>
+                                        <div class="links">
+                                            <a href="{{route('produtos.index')}}">CONSULTAR PRODUTOS</a>
+                                            <a href="{{route('relatorios.index')}}">Relatórios</a>
+                                        </div>
                                     </div>
                                     <!-- Tela de Comprovante (Direita) -->
                                     <div class="col-sm-6 tela-venda" style="background-color:khaki; overflow:auto; height: 480px;">
@@ -88,9 +107,10 @@
                                     </div>
                                 </div>
                             </div>
-                            
                         </div>
                     </div>
+                    <br>
+                    <p class="text-center"><a href="{{ url('/') }}" class="btn btn-dark btn-sm">Home</a></p>
                 </div>
             </div>
         </div>

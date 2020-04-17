@@ -83,7 +83,7 @@ class VendaController extends Controller
                         ->where('codigo',$request->codigo)
                         ->where('quantidade', '>', 0)
                         ->exists();
-        //dd($existe);
+        //dd($request->codigo);
         
         if($existe == true){
 
