@@ -78,7 +78,6 @@
                                         {!! Form::model($venda, ['method'=>'POST','action'=>['VendaController@troco', $venda->id]]) !!}
                                         <td><input class="form-control" type="text" name="valor_recebido" placeholder="Valor recebido"></td>
                                         <td>
-                                            {!! Form::hidden('valorTotal', $valorTotal)!!}
                                             {!! Form::submit('FINALIZAR', ['class'=>'btn btn-success btn-sm', 'style'=>'font-size:5px', 'data-toggle'=>'tooltip', 'title'=>'Finalizar'])!!}
                                         </td>
                                         {!! Form::close() !!}

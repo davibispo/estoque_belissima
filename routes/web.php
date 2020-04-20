@@ -1,5 +1,6 @@
 <?php
 
+Route::post('vendas/troco', 'VendaController@troco')->name('vendas.troco');
 
 Route::get('vendas/impressao', 'VendaController@impressao')->name('vendas.impressao');
 Route::get('vendas/concluir-venda', 'VendaController@concluirVenda')->name('vendas.concluir-venda');

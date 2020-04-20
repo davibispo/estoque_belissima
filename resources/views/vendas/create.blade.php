@@ -8,6 +8,10 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
+        <!-- FontAwesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+
         <title>Belíssima Cosméticos</title>
 
         <!-- Fonts -->
@@ -25,7 +29,7 @@
             }
 
             .container {
-                margin-top: 5%
+                margin-top: 2%
             }
 
             .links > a {
@@ -47,7 +51,7 @@
     <body>
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-12">
+                <div class="col-md-10">
                     <h3 class="text-center"><b>Módulo de Venda</b></h3>
                     <p>Funcionário: {{ auth()->user()->name }}</p>
                     <div class="card">
@@ -55,7 +59,7 @@
                             <div class="container-fluid">
                                 <div class="row">
                                     <!-- Tela de Venda (Esquerda) -->
-                                    <div class="col-sm-6 tela-venda" style="">
+                                    <div class="col-sm-5">
                                         <div class="alert alert-success">
                                             <p><b>CAIXA</b></p>
                                             {!! Form::open(['method'=>'POST','action'=>['VendaController@store']]) !!}
@@ -65,12 +69,12 @@
                                         </div>    
                                         <hr>
                                         <div class="links text-center">
-                                            <a href="{{route('produtos.index')}}">CONSULTAR PRODUTOS</a>
-                                            <a href="{{route('relatorios.index')}}">Relatórios</a>
+                                            <a href="{{route('produtos.index')}}"><i class="fas fa-search"></i> CONSULTAR PRODUTOS</a><br>
+                                            <a href="{{route('relatorios.index')}}"><i class="fas fa-file-alt"></i> Relatório Geral</a>
                                         </div>
                                     </div>
                                     <!-- Tela de Comprovante (Direita) -->
-                                    <div class="col-sm-6 tela-venda" style="background-color:khaki; overflow:auto; height: 480px;">
+                                    <div class="col-sm-7" style="background-color:khaki; overflow:auto; height: 480px;">
                                         COMPROVANTE <br>
                                         <table class="table" style="margin-bottom:0px; padding-bottom:0px">
                                             <tr>
@@ -83,7 +87,7 @@
                                             <tbody>
                                                 <tr>
                                                     <td>{{DB::table('produtos')->select('codigo')->where('id',$venda->produto_id)->value('codigo')}}</td>
-                                                    <td>{{mb_strimwidth(DB::table('produtos')->select('descricao')->where('id',$venda->produto_id)->value('descricao'), 0, 30, "...")}}</td>
+                                                    <th>{{mb_strimwidth(DB::table('produtos')->select('descricao')->where('id',$venda->produto_id)->value('descricao'), 0, 30, "...")}}</th>
                                                     <th>R$ {{number_format(DB::table('produtos')->select('valor')->where('id',$venda->produto_id)->value('valor'), 2, ',', '.')}}</th>
                                                     <th>
                                                         {!! Form::model($venda, ['method'=>'PATCH','action'=>['VendaController@update', $venda->id]]) !!}
@@ -109,8 +113,9 @@
                             </div>
                         </div>
                     </div>
-                    <br>
-                    <p class="text-center"><a href="{{ url('/') }}" class="btn btn-dark btn-sm">Home</a></p>
+                    <div style="padding-top:10px">
+                        <p class="text-center"><a href="{{ url('/') }}" class="btn btn-dark btn-sm">Home</a></p>
+                    </div>
                 </div>
             </div>
         </div>

@@ -140,7 +140,6 @@ class VendaController extends Controller
      */
     public function update(Request $request, $produto_id)
     {
-
         $venda = Venda::find($produto_id);
         $venda->ativo = $request->ativo;
        
@@ -170,10 +169,21 @@ class VendaController extends Controller
     // Conclui a venda mudando o status para 2 e incrementa 1 em cada cesta anterior.
     public function concluirVenda(){
 
+        $vendas = Venda::all()->where('ativo', '1')->where('status', '1');
+        $valorTotal = 0;
+        //soma o valor dos produtos
+        foreach($vendas as $venda){
+
+            if($venda->status == '1' && $venda->ativo == '1'){
+                $valorTotal += $venda->preco;
+            }    
+            
+        }
+        
         DB::table('vendas')->where('ativo','1')->where('status','1')->update(['status'=> '2']);
         DB::table('vendas')->where('ativo','1')->where('status','2')->increment('cesta', 1);
 
-        return redirect()->back();
+        return view('vendas.concluir-venda', compact('vendas', 'valorTotal'));
     }
 
     //Impressao do comprovante
@@ -183,5 +193,17 @@ class VendaController extends Controller
         $produtos = Produto::all()->where('ativo', '1');
 
         return view('vendas.impressao', compact('vendas','produtos'));
+    }
+
+    //Troco
+    public function troco(Request $request){
+        $recebido = $request->valor_recebido;
+        $valorTotal = $request->valorTotal;
+
+        $troco = $recebido - $valorTotal;
+
+        dd($troco);
+        
+        return redirect('vendas.create');
     }
 }
