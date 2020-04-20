@@ -74,12 +74,12 @@
                                     @endforeach 
                                     </tbody> 
                                     <tr>
-                                        <td><b>R$ {{number_format($valorTotal ,2,',','.')}}</b></td>
+                                        <td><h3>R$ {{number_format($valorTotal ,2,',','.')}}</h3></td>
                                         {!! Form::model($venda, ['method'=>'POST','action'=>['VendaController@troco', $venda->id]]) !!}
-                                        <td><input class="form-control" type="text" name="valor_recebido" placeholder="Valor recebido"></td>
+                                        <td><input class="form-control" type="text" name="valor_recebido" placeholder="Valor recebido (R$)" autofocus></td>
                                         <td>
                                             {!! Form::hidden('valorTotal', $valorTotal)!!}
-                                            {!! Form::submit('FINALIZAR', ['class'=>'btn btn-success btn-sm', 'style'=>'font-size:5px', 'data-toggle'=>'tooltip', 'title'=>'Finalizar'])!!}
+                                            {!! Form::submit('FINALIZAR', ['class'=>'btn btn-success', 'data-toggle'=>'tooltip', 'title'=>'Finalizar'])!!}
                                         </td>
                                         {!! Form::close() !!}
                                     </tr>
@@ -87,7 +87,6 @@
                             </div>
                         </div>
                     </div>
-                    <p class="text-center"><a href="{{route('vendas.create')}}" class="btn btn-dark btn-sm">Vendas</a></p>
                 </div>
             </div>
         </div>

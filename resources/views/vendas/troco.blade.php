@@ -56,33 +56,16 @@
                     <p>Funcionário: {{ auth()->user()->name }}</p>
                     <div class="card">
                         <div class="card-body">
-                            <div class="container-fluid">
-                                <h1>TROCO</h1>
-                                <table class="table">
-                                    <tr>
-                                        <th>Código</th>
-                                        <th>Produto</th>
-                                        <th>Preço</th>
-                                    </tr>
-                                    <tbody>
-                                    @foreach ($vendas as $venda)
-                                        <tr>
-                                            <td>{{DB::table('produtos')->select('codigo')->where('id',$venda->produto_id)->value('codigo')}}</td>
-                                            <td>{{mb_strimwidth(DB::table('produtos')->select('descricao')->where('id',$venda->produto_id)->value('descricao'), 0, 30, "...")}}</td>
-                                            <td>R$ {{number_format(DB::table('produtos')->select('valor')->where('id',$venda->produto_id)->value('valor'), 2, ',', '.')}}</td>
-                                        </tr>
-                                    @endforeach 
-                                    </tbody> 
-                                    <tr>
-                                        <td><b>R$ {{number_format($valorTotal ,2,',','.')}}</b></td>
-                                        <td>TROCO:</td>
-                                        <td> <h3>{{$troco}}</h3> </td>
-                                    </tr>
-                                </table>
+                            <div class="text-center">
+                                <b>Total da compra: R$ {{number_format($valorTotal ,2,',','.')}} </b><hr>
+                                <b>Valor recebido: R$ {{number_format($recebido ,2,',','.')}} </b><hr>
+                                <h2>TROCO: <b>R$ {{number_format($troco ,2,',','.')}}</b> </h2>
                             </div>
                         </div>
                     </div>
-                    <p class="text-center"><a href="{{route('vendas.create')}}" class="btn btn-dark btn-sm">Vendas</a></p>
+                    <div style="padding-top:10px;">
+                        <p class="text-center"><a href="{{route('vendas.create')}}" class="btn btn-dark btn-sm" accesskey="v" data-toggle="tooltip" title="ALT + v">Vendas</a></p>
+                    </div>
                 </div>
             </div>
         </div>

@@ -104,7 +104,7 @@
                                             @endforelse
                                             <tr>
                                                 <th colspan="5" class="text-right">
-                                                    <a href="{{route('vendas.concluir-venda')}}" accesskey="t" class="btn btn-success" data-toggle="tooltip" title="ALT + T">CONCLUIR VENDA</a>
+                                                    <a href="{{route('vendas.concluir-venda')}}" accesskey="c" class="btn btn-success" data-toggle="tooltip" title="ALT + c">CONCLUIR VENDA</a>
                                                 </th>   
                                             </tr>
                                         </table>

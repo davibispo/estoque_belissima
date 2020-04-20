@@ -203,8 +203,8 @@ class VendaController extends Controller
 
         $troco = $recebido - $valorTotal;
 
-        dd($troco);
+        //dd($troco);
         
-        return view('vendas.troco', 'troco');
+        return view('vendas.troco', compact('valorTotal', 'recebido','troco'));
     }
 }
