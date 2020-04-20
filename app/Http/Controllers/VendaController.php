@@ -197,6 +197,7 @@ class VendaController extends Controller
 
     //Troco
     public function troco(Request $request){
+        
         $recebido = $request->valor_recebido;
         $valorTotal = $request->valorTotal;
 
@@ -204,6 +205,6 @@ class VendaController extends Controller
 
         dd($troco);
         
-        return redirect('vendas.create');
+        return view('vendas.troco', 'troco');
     }
 }

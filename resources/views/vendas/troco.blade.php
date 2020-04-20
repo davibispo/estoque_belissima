@@ -75,12 +75,8 @@
                                     </tbody> 
                                     <tr>
                                         <td><b>R$ {{number_format($valorTotal ,2,',','.')}}</b></td>
-                                        {!! Form::model($venda, ['method'=>'POST','action'=>['VendaController@troco', $venda->id]]) !!}
-                                        <td><input class="form-control" type="text" name="valor_recebido" placeholder="Valor recebido"></td>
-                                        <td>
-                                            {!! Form::submit('FINALIZAR', ['class'=>'btn btn-success btn-sm', 'style'=>'font-size:5px', 'data-toggle'=>'tooltip', 'title'=>'Finalizar'])!!}
-                                        </td>
-                                        {!! Form::close() !!}
+                                        <td>TROCO:</td>
+                                        <td> <h3>{{$troco}}</h3> </td>
                                     </tr>
                                 </table>
                             </div>
