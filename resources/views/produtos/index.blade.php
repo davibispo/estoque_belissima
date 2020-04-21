@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header text-center" style="background-color:thistle;"><b>ESTOQUE</b></div>
+                <div class="card-header text-center" style="background-color:thistle;"><b>PRODUTOS</b></div>
 
                 <div class="card-body">
                     <div class="text-left">

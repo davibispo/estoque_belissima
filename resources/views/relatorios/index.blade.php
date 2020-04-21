@@ -15,6 +15,7 @@
                             <th colspan="2">Produtos vendidos</th>
                             <th>Valor (R$)</th>
                             <th>Data e hora</th>
+                            <th>Vendedor(a)</th>
                         </tr>
                         @forelse ($vendas as $venda)
                         <tbody id="myTable" style="font-size:12px">
@@ -23,6 +24,7 @@
                             <td>{{DB::table('produtos')->select('descricao')->where('id', $venda->produto_id)->value('descricao')}}</td>
                             <td>{{number_format(DB::table('vendas')->select('preco')->where('produto_id', $venda->produto_id)->value('preco'), 2, ',', '.')}}</td>
                             <td>{{date('d/m/y', strtotime($venda->data_venda))}} - {{date('H:i', strtotime($venda->created_at))}}</td>
+                            <td>{{DB::table('users')->select('name')->where('id', $venda->user_id)->value('name')}}  </td>
                         </tr>
                         </tbody>    
                         @empty
