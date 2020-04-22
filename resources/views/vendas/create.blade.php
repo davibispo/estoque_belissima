@@ -53,7 +53,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-10">
                     <h3 class="text-center"><b>Módulo de Venda</b></h3>
-                    <p>Funcionário: {{ auth()->user()->name }}</p>
+                    <p>Atendente: {{ auth()->user()->name }}</p>
                     <div class="card">
                         <div class="card-body">
                             <div class="container-fluid">

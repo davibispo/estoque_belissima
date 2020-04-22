@@ -19,7 +19,7 @@ class RelatorioController extends Controller
         $numProdutosVendidos = DB::table('vendas')->where('ativo','1')->where('status','2')->count('id');
         $valorTotal = DB::table('vendas')->where('ativo','1')->where('status','2')->sum('preco');
 
-        return view('relatorios.index', compact('vendas','numProdutosVendidos','valorTotal','total'));
+        return view('relatorios.index', compact('vendas','numProdutosVendidos','valorTotal'));
     }
 
     // uma data é selecionada e o relatorio é gerado
