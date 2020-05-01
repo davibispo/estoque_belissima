@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header text-center" style="background-color:thistle;"><b>EDITAR DADOS DE PRODUTO</b></div>
+                <div class="card-header text-center" style="background-color:cornflowerblue;"><b>EDITAR DADOS DE PRODUTO</b></div>
 
                 <div class="card-body">                
                     {!!Form::model($produto, ['method'=>'PATCH', 'action'=>['ProdutoController@update', $produto->id], 'class'=>'form-horizontal'])!!}

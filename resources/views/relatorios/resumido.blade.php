@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header text-center" style="background-color:thistle;"><b>RELATÓRIO - RESUMO DE VENDAS DO DIA</b></div>
+                <div class="card-header text-center" style="background-color:cornflowerblue;"><b>RELATÓRIO - RESUMO DE VENDAS DO DIA</b></div>
 
                 <div class="card-body">
                     <div class="container">

@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header text-center" style="background-color:thistle;"><b>CADASTRAR NOVO PRODUTO</b></div>
+                <div class="card-header text-center" style="background-color:cornflowerblue;"><b>CADASTRAR NOVO PRODUTO</b></div>
 
                 <div class="card-body">                
                     {!!Form::open(['method'=>'post', 'action'=>'ProdutoController@store', 'class'=>'form-horizontal'])!!}
