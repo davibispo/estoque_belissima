@@ -36,7 +36,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel" style="background-color:thistle;">
+        <nav class="navbar navbar-expand-md navbar-light navbar-laravel" style="background-color:cornflowerblue;">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="{{asset('img/logo.png')}}" alt="Logo" width="100" class="rounded">

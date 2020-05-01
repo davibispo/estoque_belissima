@@ -20,7 +20,7 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color:thistle;
+                background-color:cornflowerblue;
                 color: #636b6f;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
@@ -54,6 +54,14 @@
                 <div class="col-md-10">
                     <h3 class="text-center"><b>Módulo de Venda</b></h3>
                     <p>Atendente: {{ auth()->user()->name }}</p>
+                    <h3 class="text-center text-white"><b>Módulo de Venda</b></h3>
+                    <table>
+                        <tr>
+                            <td><a href="{{ url('/') }}" class="btn btn-dark btn-sm">Home</a></td>
+                            <td>Funcionário: {{ auth()->user()->name }}</td>
+                        </tr>
+                    </table>
+
                     <div class="card">
                         <div class="card-body">
                             <div class="container-fluid">
@@ -71,6 +79,10 @@
                                         <div class="links text-center">
                                             <a href="{{route('produtos.index')}}"><i class="fas fa-search"></i> CONSULTAR PRODUTOS</a><br>
                                             <a href="{{route('relatorios.index')}}"><i class="fas fa-file-alt"></i> Relatório Geral</a>
+                                        </div>
+
+                                        <div class="text-center" style="margin-top:35%">
+                                            <img src="{{asset('img/logo.png')}}" alt="Logo" width="150" class="rounded">
                                         </div>
                                     </div>
                                     <!-- Tela de Comprovante (Direita) -->
@@ -113,9 +125,7 @@
                             </div>
                         </div>
                     </div>
-                    <div style="padding-top:10px">
-                        <p class="text-center"><a href="{{ url('/') }}" class="btn btn-dark btn-sm">Home</a></p>
-                    </div>
+                    
                 </div>
             </div>
         </div>
