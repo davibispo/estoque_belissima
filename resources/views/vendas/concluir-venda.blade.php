@@ -20,7 +20,7 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color:thistle;
+                background-color:cornflowerblue;
                 color: #636b6f;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;

@@ -52,13 +52,11 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-10">
-                    <h3 class="text-center"><b>Módulo de Venda</b></h3>
-                    <p>Atendente: {{ auth()->user()->name }}</p>
                     <h3 class="text-center text-white"><b>Módulo de Venda</b></h3>
                     <table>
                         <tr>
                             <td><a href="{{ url('/') }}" class="btn btn-dark btn-sm">Home</a></td>
-                            <td>Funcionário: {{ auth()->user()->name }}</td>
+                            <td>Atendente: {{ auth()->user()->name }}</td>
                         </tr>
                     </table>
 
