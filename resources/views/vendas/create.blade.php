@@ -52,11 +52,12 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-10">
-                    <h3 class="text-center text-white"><b>Módulo de Venda</b></h3>
+                    <h3 class="text-center text-white"><b><ins>Módulo de Venda</ins></b></h3>
                     <table>
                         <tr>
                             <td><a href="{{ url('/') }}" class="btn btn-dark btn-sm">Home</a></td>
-                            <td>Atendente: {{ auth()->user()->name }}</td>
+                            <td>&nbsp</td>
+                            <td style="color: black">Atendente: {{ auth()->user()->name }}</td>
                         </tr>
                     </table>
 
@@ -114,7 +115,7 @@
                                             @endforelse
                                             <tr>
                                                 <th colspan="5" class="text-right">
-                                                    <a href="{{route('vendas.concluir-venda')}}" accesskey="c" class="btn btn-success" data-toggle="tooltip" title="ALT + c">CONCLUIR VENDA</a>
+                                                    <a href="{{route('vendas.concluir-venda')}}" accesskey="c" class="btn btn-primary" data-toggle="tooltip" title="ALT + c">CONCLUIR VENDA</a>
                                                 </th>   
                                             </tr>
                                         </table>

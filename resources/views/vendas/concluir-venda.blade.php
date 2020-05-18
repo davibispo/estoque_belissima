@@ -47,6 +47,14 @@
             }
             
         </style>
+        <!-- Mascaras  -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('#valor').mask('000.000.000.000.000.00' , { reverse : true});
+            });
+        </script>
+        <!-- fim de mascaras-->
     </head>
     <body>
         <div class="container">
@@ -76,7 +84,7 @@
                                     <tr>
                                         <td><h3>R$ {{number_format($valorTotal ,2,',','.')}}</h3></td>
                                         {!! Form::model($venda, ['method'=>'POST','action'=>['VendaController@troco', $venda->id]]) !!}
-                                        <td><input class="form-control" type="text" name="valor_recebido" placeholder="Valor recebido (R$)" autofocus></td>
+                                        <td><input class="form-control" type="text" name="valor_recebido" id="valor" placeholder="Valor recebido (R$)" autofocus></td>
                                         <td>
                                             {!! Form::hidden('valorTotal', $valorTotal)!!}
                                             {!! Form::submit('FINALIZAR', ['class'=>'btn btn-success', 'data-toggle'=>'tooltip', 'title'=>'Finalizar'])!!}

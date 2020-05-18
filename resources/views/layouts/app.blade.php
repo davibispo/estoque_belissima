@@ -60,7 +60,7 @@
                                     <a class="dropdown-item" href="{{ route('relatorios.periodo') }}">Relatório por Período</a>
                                 </div>
                             </li> 
-                            <li style="padding-right:5px"><a href="{{route('vendas.create')}}" class="btn btn-success btn-sm">VENDA</a></li> 
+                            <li style="padding-right:5px"><a href="{{route('vendas.create')}}" class="btn btn-success btn-sm"><b>MÓDULO VENDA</b></a></li> 
                         @endguest
                     </ul>
 

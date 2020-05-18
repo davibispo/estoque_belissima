@@ -197,7 +197,7 @@ class VendaController extends Controller
 
     //Troco
     public function troco(Request $request){
-        
+        //dd($request);
         $recebido = $request->valor_recebido;
         $valorTotal = $request->valorTotal;
 

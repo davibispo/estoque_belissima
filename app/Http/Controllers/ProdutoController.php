@@ -51,10 +51,13 @@ class ProdutoController extends Controller
         $p->descricao = strtoupper($request->descricao);
         $p->quantidade = $request->quantidade;
         $p->user_id = auth()->user()->id;
-
-        $p->save();
-
-        return redirect()->back();
+        
+        if (DB::table('produtos')->select('codigo')->where('codigo', $p->codigo)->exists()) {
+            return redirect()->back()>with('alertDanger','Erro! Já existe produto cadastrado com mesmo código!');
+        }else{
+            $p->save();
+            return redirect()->back();
+        }
     }
 
     /**
