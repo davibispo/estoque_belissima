@@ -53,7 +53,8 @@ class ProdutoController extends Controller
         $p->user_id = auth()->user()->id;
         
         if (DB::table('produtos')->select('codigo')->where('codigo', $p->codigo)->exists()) {
-            return redirect()->back()>with('alertDanger','Erro! Já existe produto cadastrado com mesmo código!');
+            //dd($request);
+            return redirect()->back()->with('alertDanger','Erro! Já existe produto cadastrado com mesmo código!');
         }else{
             $p->save();
             return redirect()->back();
