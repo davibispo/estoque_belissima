@@ -45,6 +45,13 @@
             .links > a:hover {
                 text-decoration: underline;
             }
+
+            .btn-dark{
+                background-color: #1b3054ff;
+            }
+            .btn-primary{
+                background-color: #2552a3ff;
+            }
             
         </style>
     </head>
@@ -52,7 +59,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-10">
-                    <h3 class="text-center text-white"><b><ins>Módulo de Venda</ins></b></h3>
+                    <h3 class="text-center text-white"><b style="background-color: #1b3054ff; border-radius: 20px; padding:0px 10px 0px 10px;">Módulo de Venda</b></h3>
                     <table>
                         <tr>
                             <td><a href="{{ url('/') }}" class="btn btn-dark btn-sm">Home</a></td>
@@ -75,9 +82,10 @@
                                             {!! Form::close() !!}    
                                         </div>    
                                         <hr>
-                                        <div class="links text-center">
-                                            <a href="{{route('produtos.index')}}"><i class="fas fa-search"></i> CONSULTAR PRODUTOS</a><br>
-                                            <a href="{{route('relatorios.index')}}"><i class="fas fa-file-alt"></i> Relatório Geral</a>
+                                        
+                                        <div class="text-center">
+                                            <a href="{{route('produtos.index')}}" class="btn btn-lg btn-default" accesskey="p" data-toggle="tooltip" title="ALT + p"><i class="fas fa-5x fa-barcode"></i></a>
+                                            <br>Consultar Produtos (Alt+P)
                                         </div>
 
                                         <div class="text-center" style="margin-top:35%">
@@ -115,7 +123,7 @@
                                             @endforelse
                                             <tr>
                                                 <th colspan="5" class="text-right">
-                                                    <a href="{{route('vendas.concluir-venda')}}" accesskey="c" class="btn btn-primary" data-toggle="tooltip" title="ALT + c">CONCLUIR VENDA</a>
+                                                    <a href="{{route('vendas.concluir-venda')}}" accesskey="c" class="btn btn-primary" data-toggle="tooltip" title="ALT + c">Concluir Venda (Alt+C)</a>
                                                 </th>   
                                             </tr>
                                         </table>

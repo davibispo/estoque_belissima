@@ -45,6 +45,13 @@
             .links > a:hover {
                 text-decoration: underline;
             }
+
+            .btn-dark{
+                background-color: #1b3054ff;
+            }
+            .btn-primary{
+                background-color: #3e6dc3ff;
+            }
             
         </style>
     </head>
@@ -52,7 +59,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-10">
-                    <h3 class="text-center"><b>Módulo de Venda</b></h3>
+                    <h3 class="text-center"><b style="color: white; background-color: #1b3054ff; border-radius: 20px; padding:0px 10px 0px 10px;">Módulo de Venda</b></h3>
                     <p>Funcionário: {{ auth()->user()->name }}</p>
                     <div class="card">
                         <div class="card-body">
@@ -64,7 +71,7 @@
                         </div>
                     </div>
                     <div style="padding-top:10px;">
-                        <p class="text-center"><a href="{{route('vendas.create')}}" class="btn btn-dark btn-sm" accesskey="v" data-toggle="tooltip" title="ALT + v">Vendas</a></p>
+                        <p class="text-center"><a href="{{route('vendas.create')}}" class="btn btn-dark btn-sm" accesskey="v" data-toggle="tooltip" title="ALT + v">Vendas (Alt+V)</a></p>
                     </div>
                 </div>
             </div>

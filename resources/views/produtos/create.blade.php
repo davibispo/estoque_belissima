@@ -45,8 +45,8 @@
                             </div>
                         </div>
                     {!!Form::close()!!}
-                    <br>
-                    <div style="overflow:auto; height: 300px;">
+                    <i>Últimos 10 cadastrados:</i>
+                    <div style="overflow:auto; height: 350px;">
                         <table class="table table-hover table-sm">
                             <tr>
                                 <th>Código</th>

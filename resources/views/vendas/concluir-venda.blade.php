@@ -60,7 +60,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-10">
-                    <h3 class="text-center"><b>Módulo de Venda</b></h3>
+                    <h3 class="text-center text-white"><b style="background-color: #1b3054ff; border-radius: 20px; padding:0px 10px 0px 10px;">Módulo de Venda</b></h3>
                     <p>Funcionário: {{ auth()->user()->name }}</p>
                     <div class="card">
                         <div class="card-body">
@@ -87,7 +87,7 @@
                                         <td><input class="form-control" type="text" name="valor_recebido" id="valor" placeholder="Valor recebido (R$)" autofocus></td>
                                         <td>
                                             {!! Form::hidden('valorTotal', $valorTotal)!!}
-                                            {!! Form::submit('FINALIZAR', ['class'=>'btn btn-success', 'data-toggle'=>'tooltip', 'title'=>'Finalizar'])!!}
+                                            {!! Form::submit('FINALIZAR (Alt+C)', ['class'=>'btn btn-success','accesskey'=>'c', 'data-toggle'=>'tooltip', 'title'=>'Alt+C'])!!}
                                         </td>
                                         {!! Form::close() !!}
                                     </tr>

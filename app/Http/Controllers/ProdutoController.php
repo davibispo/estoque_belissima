@@ -31,7 +31,7 @@ class ProdutoController extends Controller
      */
     public function create()
     {
-        $produtos = Produto::all()->where('ativo', '1')->sortByDesc('id');
+        $produtos = Produto::all()->where('ativo', '1')->sortByDesc('id')->take(10);
         return view('produtos.create', compact('produtos'));
     }
 
